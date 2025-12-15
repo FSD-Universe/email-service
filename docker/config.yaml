@@ -1,0 +1,176 @@
+# 全局配置
+global:
+  # 服务名称
+  name: email-service
+  # 配置文件版本
+  version: 0.1.0
+  # 日志配置
+  log:
+    # 日志级别
+    level: debug
+    # 日志文件路径
+    path: ./logs/logs.log
+    # 日志文件轮转
+    rotate: true
+    # 日志文件最大大小（MB）
+    max_size: 2
+    # 日志文件保存天数
+    max_age: 28
+    # 日志文件最大备份数
+    max_backups: 30
+    # 是否压缩日志文件
+    compress: true
+    # 是否使用本地时间而不是UTC时间
+    local_time: true
+
+email:
+  # SMTP服务器地址
+  host: smtp.example.com
+  # SMTP服务器端口
+  port: 587
+  # SMTP用户名
+  username: ""
+  # SMTP密码
+  password: ""
+  # 验证码过期时间
+  verify_expired_time: 5m
+  # 验证码发送间隔
+  verify_interval: 1m
+  # 邮件模板
+  template:
+    local_path: data/templates
+    templates:
+      verify_code_email:
+        file_name: email_verify.template
+        subject: 邮箱验证码
+      welcome_email:
+        file_name: welcome.template
+        subject: 欢迎注册
+      rating_change_email:
+        file_name: atc_rating_change.template
+        subject: 管制权限变更通知
+      kicked_from_server_email:
+        file_name: kicked_from_server.template
+        subject: 您已被踢出服务器
+      password_change_email:
+        file_name: password_change.template
+        subject: 飞控密码更改通知
+      password_reset_email:
+        file_name: password_reset.template
+        subject: 飞控密码重置通知
+      application_passed_email:
+        file_name: application_passed.template
+        subject: 管制员申请通过
+      application_rejected_email:
+        file_name: application_rejected.template
+        subject: 管制员申请被拒
+      application_processing_email:
+        file_name: application_processing.template
+        subject: 管制面试通知
+      ticket_reply_email:
+        file_name: ticket_reply.template
+        subject: 工单回复通知
+      activity_pilot_join_email:
+        file_name: activity_pilot_join.template
+        subject: 活动报名成功
+      activity_pilot_leave_email:
+        file_name: activity_pilot_leave.template
+        subject: 退出活动成功
+      activity_atc_join_email:
+        file_name: activity_atc_join.template
+        subject: 活动报名成功
+      activity_atc_leave_email:
+        file_name: activity_atc_leave.template
+        subject: 退出活动成功
+      instructor_change_email:
+        file_name: instructor_change.template
+        subject: 教员变更通知
+      banned_email:
+        file_name: banned.template
+        subject: 您已被封禁
+      role_change_email:
+        file_name: role_change.template
+        subject: 飞控角色变更通知
+      permission_change_email:
+        file_name: permission_change.template
+        subject: 飞控权限变更通知
+
+# 服务配置
+server:
+  # http服务配置
+  http:
+    # 是否启动
+    enable: true
+    # 监听地址
+    host: 0.0.0.0
+    # 监听端口
+    port: 8080
+    # 请求体大小限制
+    # 置空表示不限制
+    body_limit: 5MB
+    # 请求频率限制(次/分钟)
+    # 0表示不限制
+    rate_limit: 20
+    # 代理类型
+    proxy_type: 0
+    # 允许的代理IP地址
+    # 本地回环地址、局域网地址和本地连接地址默认允许
+    trust_ips:
+      # 本地回环地址
+      # - "127.0.0.1/32"
+      # 局域网地址
+      # - "10.0.0.0/8"
+      # - "172.16.0.0/12"
+      # - "192.168.0.0/16"
+      # 本地连接地址
+      # - "169.254.0.0/16"
+      - "0.0.0.0/0"
+    # SSL配置
+    ssl:
+      # 是否启用SSL
+      enable: false
+      # SSL证书文件
+      cert: ""
+      # SSL密钥文件
+      key: ""
+      # 是否强制使用SSL
+      force_https: false
+      # HSTS配置
+      hsts:
+        # 是否启用HSTS
+        enable: false
+        # HSTS过期时间（秒）
+        max_age: 5184000
+        # 是否包含子域名
+        include_subdomains: false
+  # grpc服务配置
+  grpc:
+    # 是否启动
+    enable: true
+    # 监听地址
+    host: 0.0.0.0
+    # 监听端口
+    port: 8081
+
+# 监控配置
+telemetry:
+  # 是否启用
+  enable: false
+  # 服务名称
+  name:
+  # 接入点
+  endpoint:
+  # 认证秘钥
+  token:
+  # 服务名
+  service_name:
+  # 节点名
+  host_name:
+  # 启用数据库追踪
+  database_trace: false
+  # 启用grpc服务器追踪
+  grpc_server_trace: false
+  # 启用grpc客户端追踪
+  grpc_client_trace: false
+  # 启用http追踪
+  http_server_trace: false
