@@ -1,0 +1,12 @@
+// Copyright (c) 2025 Half_nothing
+// SPDX-License-Identifier: MIT
+
+edition = "2023";
+
+option go_package = "src/interfaces/grpc";
+
+package email;
+
+service Email {
+
+}
