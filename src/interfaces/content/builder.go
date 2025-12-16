@@ -1,8 +1,12 @@
+// Copyright (c) 2025 Half_nothing
+// SPDX-License-Identifier: MIT
+
 // Package content
 package content
 
 import (
 	c "email-service/src/interfaces/config"
+	"email-service/src/interfaces/email"
 
 	"half-nothing.cn/service-core/interfaces/cleaner"
 	"half-nothing.cn/service-core/interfaces/config"
@@ -34,6 +38,15 @@ func (builder *ApplicationContentBuilder) SetLogger(logger logger.Interface) *Ap
 	return builder
 }
 
+func (builder *ApplicationContentBuilder) SetEmailSender(emailSender email.SenderInterface) *ApplicationContentBuilder {
+	builder.content.emailSender = emailSender
+	return builder
+}
+
+func (builder *ApplicationContentBuilder) SetCodeManager(codeManager email.CodeManagerInterface) *ApplicationContentBuilder {
+	builder.content.codeManager = codeManager
+	return builder
+}
 func (builder *ApplicationContentBuilder) Build() *ApplicationContent {
 	return builder.content
 }
