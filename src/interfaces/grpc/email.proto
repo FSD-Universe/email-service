@@ -142,18 +142,17 @@ message Welcome {
 
 message SendResponse {
   bool success = 1;
-  string message = 2;
 }
 
 message VerifyCode {
-  string cid = 1;
+  int32 cid = 1;
   string code = 2;
   string email = 3;
 }
 
 message VerifyResponse {
   bool success = 1;
-  int32 code = 2;
+  int32 code = 2; // 0 = success, 1 = code expired or not found, 2 = invalid code, 3 = unknown error
 }
 
 service Email {

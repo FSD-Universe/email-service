@@ -87,10 +87,15 @@ func main() {
 
 	if applicationConfig.ServerConfig.GrpcServerConfig.Enable {
 		started := make(chan bool)
-		go grpcUtils.StartGrpcServer(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, func(s *grpc.Server) {
+		initFunc := func(s *grpc.Server) {
 			grpcServer := grpcImpl.NewEmailServer(applicationContent)
 			pb.RegisterEmailServer(s, grpcServer)
-		})
+		}
+		if applicationConfig.TelemetryConfig.Enable && applicationConfig.TelemetryConfig.GrpcServerTrace {
+			go grpcUtils.StartGrpcServerWithTrace(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
+		} else {
+			go grpcUtils.StartGrpcServer(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
+		}
 		go discovery.StartServiceDiscovery(lg, cl, started, utils.NewVersion(g.AppVersion),
 			"email-service", applicationConfig.ServerConfig.GrpcServerConfig.Port)
 	}
