@@ -8,6 +8,7 @@ import (
 	"email-service/src/interfaces/config"
 	"email-service/src/interfaces/email"
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/thanhpk/randstr"
@@ -37,6 +38,7 @@ func NewCodeManager(
 }
 
 func (c *CodeManager) GenerateEmailCode(target string, cid int) (*email.VerifyCodeEmail, time.Duration, error) {
+	target = strings.ToLower(target)
 	if val, ok := c.sendCache.Get(target); ok {
 		return nil, val.Add(c.config.VerifyIntervalDuration).Sub(time.Now()), email.ErrEmailCodeCooldown
 	}
@@ -54,11 +56,15 @@ func (c *CodeManager) GenerateEmailCode(target string, cid int) (*email.VerifyCo
 }
 
 func (c *CodeManager) VerifyEmailCode(target string, cid int, code string) error {
+	target = strings.ToLower(target)
+	c.logger.Infof("verifying email code for %s with cid %d and code %s", target, cid, code)
 	val, ok := c.cache.Get(target)
 	if !ok {
+		c.logger.Warnf("email code for %s expired", target)
 		return email.ErrEmailCodeExpired
 	}
 	if val.Code != code || val.Cid != cid {
+		c.logger.Warnf("email code for %s invalid", target)
 		return email.ErrEmailCodeInvalid
 	}
 	c.cache.Del(target)
