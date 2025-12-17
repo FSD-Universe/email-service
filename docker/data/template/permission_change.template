@@ -1,16 +1,11 @@
 <p>尊敬的{{.Cid}}: </p>
-<br>
 <p>您好, </p>
-<br>
-
+<br/>
 <p>您的飞控权限被修改</p>
 <p>发生变更的权限如下: {{.Permissions}}</p>
-
 <p>操作人: {{.Operator}}</p>
-
-<br>
+<br/>
 <p>如有疑问请联系: <a href="mailto:{{.Contact}}">{{.Contact}}</a></p>
-<br>
-
+<br/>
 <p>以上, </p>
 <p>行政中心</p>

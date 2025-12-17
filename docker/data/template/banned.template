@@ -1,17 +1,12 @@
 <p>尊敬的{{.Cid}}: </p>
-<br>
 <p>您好, </p>
-<br>
-
+<br/>
 <p>由于{{.Reason}}</p>
 <p>您已被管理员封禁</p>
 <p>解封时间: {{.Time}}</p>
-
 <p>操作人: {{.Operator}}</p>
-
-<br>
+<br/>
 <p>如有疑问请联系: <a href="mailto:{{.Contact}}">{{.Contact}}</a></p>
-<br>
-
+<br/>
 <p>以上, </p>
 <p>行政中心</p>

@@ -1,15 +1,12 @@
 <p>尊敬的{{.Cid}}: </p>
-<br>
 <p>您好, </p>
-<br>
-
+<br/>
 <p>很遗憾的通知您: </p>
 <p>空管中心<strong style="color: red;">拒绝了</strong>您的管制员申请, 操作员: {{.Operator}}</p>
 <p>拒绝理由为: </p>
 <p>{{.Reason}}</p>
-<br>
+<br/>
 <p>如有疑问请联系: <a href="mailto:{{.Contact}}">{{.Contact}}</a></p>
-<br>
-
+<br/>
 <p>以上, </p>
 <p>空管中心</p>

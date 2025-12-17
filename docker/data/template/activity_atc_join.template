@@ -1,13 +1,11 @@
 <p>尊敬的{{.Cid}}: </p>
-<br>
 <p>您好, </p>
-<br>
-
+<br/>
 <p>您已作为管制报名"{{.ActivityName}}"联飞活动</p>
 <p>活动时间: {{.ActivityTime}}</p>
 <p>管制席位: {{.Facility}}</p>
 <p>管制频率: {{.Frequency}}MHz</p>
 <p>请及时参与管制协调会, 祝管制顺利</p>
-
+<br/>
 <p>以上, </p>
 <p>活动组织部</p>

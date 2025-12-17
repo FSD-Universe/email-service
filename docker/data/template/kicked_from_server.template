@@ -1,14 +1,10 @@
 <p>尊敬的{{.Cid}}: </p>
-<br>
 <p>您好, </p>
-<br>
-
+<br/>
 <p>您在{{.Time}}被{{.Operator}}踢出服务器</p>
 <p>理由是: {{.Reason}}</p>
-
-<br>
+<br/>
 <p>如有疑问请联系: <a href="mailto:{{.Contact}}">{{.Contact}}</a></p>
-<br>
-
+<br/>
 <p>以上, </p>
 <p>技术支持部</p>
