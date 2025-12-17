@@ -26,12 +26,12 @@ const (
 
 type ActivityAtcJoin struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	ActivityName  *string                `protobuf:"bytes,3,opt,name=activityName" json:"activityName,omitempty"`
-	ActivityTime  *string                `protobuf:"bytes,4,opt,name=activityTime" json:"activityTime,omitempty"`
-	Facility      *string                `protobuf:"bytes,5,opt,name=facility" json:"facility,omitempty"`
-	Frequency     *string                `protobuf:"bytes,6,opt,name=frequency" json:"frequency,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	ActivityName  string                 `protobuf:"bytes,3,opt,name=activityName,proto3" json:"activityName,omitempty"`
+	ActivityTime  string                 `protobuf:"bytes,4,opt,name=activityTime,proto3" json:"activityTime,omitempty"`
+	Facility      string                 `protobuf:"bytes,5,opt,name=facility,proto3" json:"facility,omitempty"`
+	Frequency     string                 `protobuf:"bytes,6,opt,name=frequency,proto3" json:"frequency,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -67,52 +67,52 @@ func (*ActivityAtcJoin) Descriptor() ([]byte, []int) {
 }
 
 func (x *ActivityAtcJoin) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *ActivityAtcJoin) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *ActivityAtcJoin) GetActivityName() string {
-	if x != nil && x.ActivityName != nil {
-		return *x.ActivityName
+	if x != nil {
+		return x.ActivityName
 	}
 	return ""
 }
 
 func (x *ActivityAtcJoin) GetActivityTime() string {
-	if x != nil && x.ActivityTime != nil {
-		return *x.ActivityTime
+	if x != nil {
+		return x.ActivityTime
 	}
 	return ""
 }
 
 func (x *ActivityAtcJoin) GetFacility() string {
-	if x != nil && x.Facility != nil {
-		return *x.Facility
+	if x != nil {
+		return x.Facility
 	}
 	return ""
 }
 
 func (x *ActivityAtcJoin) GetFrequency() string {
-	if x != nil && x.Frequency != nil {
-		return *x.Frequency
+	if x != nil {
+		return x.Frequency
 	}
 	return ""
 }
 
 type ActivityAtcLeave struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	ActivityName  *string                `protobuf:"bytes,3,opt,name=activityName" json:"activityName,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	ActivityName  string                 `protobuf:"bytes,3,opt,name=activityName,proto3" json:"activityName,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -148,34 +148,34 @@ func (*ActivityAtcLeave) Descriptor() ([]byte, []int) {
 }
 
 func (x *ActivityAtcLeave) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *ActivityAtcLeave) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *ActivityAtcLeave) GetActivityName() string {
-	if x != nil && x.ActivityName != nil {
-		return *x.ActivityName
+	if x != nil {
+		return x.ActivityName
 	}
 	return ""
 }
 
 type ActivityPilotJoin struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	ActivityName  *string                `protobuf:"bytes,3,opt,name=activityName" json:"activityName,omitempty"`
-	ActivityTime  *string                `protobuf:"bytes,4,opt,name=activityTime" json:"activityTime,omitempty"`
-	Callsign      *string                `protobuf:"bytes,5,opt,name=callsign" json:"callsign,omitempty"`
-	Aircraft      *string                `protobuf:"bytes,6,opt,name=aircraft" json:"aircraft,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	ActivityName  string                 `protobuf:"bytes,3,opt,name=activityName,proto3" json:"activityName,omitempty"`
+	ActivityTime  string                 `protobuf:"bytes,4,opt,name=activityTime,proto3" json:"activityTime,omitempty"`
+	Callsign      string                 `protobuf:"bytes,5,opt,name=callsign,proto3" json:"callsign,omitempty"`
+	Aircraft      string                 `protobuf:"bytes,6,opt,name=aircraft,proto3" json:"aircraft,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -211,52 +211,52 @@ func (*ActivityPilotJoin) Descriptor() ([]byte, []int) {
 }
 
 func (x *ActivityPilotJoin) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *ActivityPilotJoin) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *ActivityPilotJoin) GetActivityName() string {
-	if x != nil && x.ActivityName != nil {
-		return *x.ActivityName
+	if x != nil {
+		return x.ActivityName
 	}
 	return ""
 }
 
 func (x *ActivityPilotJoin) GetActivityTime() string {
-	if x != nil && x.ActivityTime != nil {
-		return *x.ActivityTime
+	if x != nil {
+		return x.ActivityTime
 	}
 	return ""
 }
 
 func (x *ActivityPilotJoin) GetCallsign() string {
-	if x != nil && x.Callsign != nil {
-		return *x.Callsign
+	if x != nil {
+		return x.Callsign
 	}
 	return ""
 }
 
 func (x *ActivityPilotJoin) GetAircraft() string {
-	if x != nil && x.Aircraft != nil {
-		return *x.Aircraft
+	if x != nil {
+		return x.Aircraft
 	}
 	return ""
 }
 
 type ActivityPilotLeave struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	ActivityName  *string                `protobuf:"bytes,3,opt,name=activityName" json:"activityName,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	ActivityName  string                 `protobuf:"bytes,3,opt,name=activityName,proto3" json:"activityName,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -292,33 +292,33 @@ func (*ActivityPilotLeave) Descriptor() ([]byte, []int) {
 }
 
 func (x *ActivityPilotLeave) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *ActivityPilotLeave) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *ActivityPilotLeave) GetActivityName() string {
-	if x != nil && x.ActivityName != nil {
-		return *x.ActivityName
+	if x != nil {
+		return x.ActivityName
 	}
 	return ""
 }
 
 type ApplicationPassed struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Operator      *string                `protobuf:"bytes,3,opt,name=operator" json:"operator,omitempty"`
-	Message       *string                `protobuf:"bytes,4,opt,name=message" json:"message,omitempty"`
-	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Operator      string                 `protobuf:"bytes,3,opt,name=operator,proto3" json:"operator,omitempty"`
+	Message       string                 `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
+	Contact       string                 `protobuf:"bytes,5,opt,name=contact,proto3" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -354,46 +354,46 @@ func (*ApplicationPassed) Descriptor() ([]byte, []int) {
 }
 
 func (x *ApplicationPassed) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *ApplicationPassed) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *ApplicationPassed) GetOperator() string {
-	if x != nil && x.Operator != nil {
-		return *x.Operator
+	if x != nil {
+		return x.Operator
 	}
 	return ""
 }
 
 func (x *ApplicationPassed) GetMessage() string {
-	if x != nil && x.Message != nil {
-		return *x.Message
+	if x != nil {
+		return x.Message
 	}
 	return ""
 }
 
 func (x *ApplicationPassed) GetContact() string {
-	if x != nil && x.Contact != nil {
-		return *x.Contact
+	if x != nil {
+		return x.Contact
 	}
 	return ""
 }
 
 type ApplicationProcessing struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Time          *string                `protobuf:"bytes,3,opt,name=time" json:"time,omitempty"`
-	Contact       *string                `protobuf:"bytes,4,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Time          string                 `protobuf:"bytes,3,opt,name=time,proto3" json:"time,omitempty"`
+	Contact       string                 `protobuf:"bytes,4,opt,name=contact,proto3" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -429,40 +429,40 @@ func (*ApplicationProcessing) Descriptor() ([]byte, []int) {
 }
 
 func (x *ApplicationProcessing) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *ApplicationProcessing) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *ApplicationProcessing) GetTime() string {
-	if x != nil && x.Time != nil {
-		return *x.Time
+	if x != nil {
+		return x.Time
 	}
 	return ""
 }
 
 func (x *ApplicationProcessing) GetContact() string {
-	if x != nil && x.Contact != nil {
-		return *x.Contact
+	if x != nil {
+		return x.Contact
 	}
 	return ""
 }
 
 type ApplicationRejected struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Operator      *string                `protobuf:"bytes,3,opt,name=operator" json:"operator,omitempty"`
-	Reason        *string                `protobuf:"bytes,4,opt,name=reason" json:"reason,omitempty"`
-	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Operator      string                 `protobuf:"bytes,3,opt,name=operator,proto3" json:"operator,omitempty"`
+	Reason        string                 `protobuf:"bytes,4,opt,name=reason,proto3" json:"reason,omitempty"`
+	Contact       string                 `protobuf:"bytes,5,opt,name=contact,proto3" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -498,48 +498,48 @@ func (*ApplicationRejected) Descriptor() ([]byte, []int) {
 }
 
 func (x *ApplicationRejected) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *ApplicationRejected) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *ApplicationRejected) GetOperator() string {
-	if x != nil && x.Operator != nil {
-		return *x.Operator
+	if x != nil {
+		return x.Operator
 	}
 	return ""
 }
 
 func (x *ApplicationRejected) GetReason() string {
-	if x != nil && x.Reason != nil {
-		return *x.Reason
+	if x != nil {
+		return x.Reason
 	}
 	return ""
 }
 
 func (x *ApplicationRejected) GetContact() string {
-	if x != nil && x.Contact != nil {
-		return *x.Contact
+	if x != nil {
+		return x.Contact
 	}
 	return ""
 }
 
 type AtcRatingChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	NewValue      *string                `protobuf:"bytes,3,opt,name=newValue" json:"newValue,omitempty"`
-	OldValue      *string                `protobuf:"bytes,4,opt,name=oldValue" json:"oldValue,omitempty"`
-	Operator      *string                `protobuf:"bytes,5,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,6,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	NewValue      string                 `protobuf:"bytes,3,opt,name=newValue,proto3" json:"newValue,omitempty"`
+	OldValue      string                 `protobuf:"bytes,4,opt,name=oldValue,proto3" json:"oldValue,omitempty"`
+	Operator      string                 `protobuf:"bytes,5,opt,name=operator,proto3" json:"operator,omitempty"`
+	Contact       string                 `protobuf:"bytes,6,opt,name=contact,proto3" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -575,55 +575,55 @@ func (*AtcRatingChange) Descriptor() ([]byte, []int) {
 }
 
 func (x *AtcRatingChange) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *AtcRatingChange) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *AtcRatingChange) GetNewValue() string {
-	if x != nil && x.NewValue != nil {
-		return *x.NewValue
+	if x != nil {
+		return x.NewValue
 	}
 	return ""
 }
 
 func (x *AtcRatingChange) GetOldValue() string {
-	if x != nil && x.OldValue != nil {
-		return *x.OldValue
+	if x != nil {
+		return x.OldValue
 	}
 	return ""
 }
 
 func (x *AtcRatingChange) GetOperator() string {
-	if x != nil && x.Operator != nil {
-		return *x.Operator
+	if x != nil {
+		return x.Operator
 	}
 	return ""
 }
 
 func (x *AtcRatingChange) GetContact() string {
-	if x != nil && x.Contact != nil {
-		return *x.Contact
+	if x != nil {
+		return x.Contact
 	}
 	return ""
 }
 
 type Banned struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Reason        *string                `protobuf:"bytes,3,opt,name=reason" json:"reason,omitempty"`
-	Time          *string                `protobuf:"bytes,4,opt,name=time" json:"time,omitempty"`
-	Operator      *string                `protobuf:"bytes,5,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,6,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Reason        string                 `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
+	Time          string                 `protobuf:"bytes,4,opt,name=time,proto3" json:"time,omitempty"`
+	Operator      string                 `protobuf:"bytes,5,opt,name=operator,proto3" json:"operator,omitempty"`
+	Contact       string                 `protobuf:"bytes,6,opt,name=contact,proto3" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -659,55 +659,55 @@ func (*Banned) Descriptor() ([]byte, []int) {
 }
 
 func (x *Banned) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *Banned) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *Banned) GetReason() string {
-	if x != nil && x.Reason != nil {
-		return *x.Reason
+	if x != nil {
+		return x.Reason
 	}
 	return ""
 }
 
 func (x *Banned) GetTime() string {
-	if x != nil && x.Time != nil {
-		return *x.Time
+	if x != nil {
+		return x.Time
 	}
 	return ""
 }
 
 func (x *Banned) GetOperator() string {
-	if x != nil && x.Operator != nil {
-		return *x.Operator
+	if x != nil {
+		return x.Operator
 	}
 	return ""
 }
 
 func (x *Banned) GetContact() string {
-	if x != nil && x.Contact != nil {
-		return *x.Contact
+	if x != nil {
+		return x.Contact
 	}
 	return ""
 }
 
 type InstructorChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Reason        *string                `protobuf:"bytes,3,opt,name=reason" json:"reason,omitempty"`
-	Instructor    *string                `protobuf:"bytes,4,opt,name=instructor" json:"instructor,omitempty"`
-	Operator      *string                `protobuf:"bytes,5,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,6,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Reason        string                 `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
+	Instructor    string                 `protobuf:"bytes,4,opt,name=instructor,proto3" json:"instructor,omitempty"`
+	Operator      string                 `protobuf:"bytes,5,opt,name=operator,proto3" json:"operator,omitempty"`
+	Contact       string                 `protobuf:"bytes,6,opt,name=contact,proto3" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -743,55 +743,55 @@ func (*InstructorChange) Descriptor() ([]byte, []int) {
 }
 
 func (x *InstructorChange) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *InstructorChange) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *InstructorChange) GetReason() string {
-	if x != nil && x.Reason != nil {
-		return *x.Reason
+	if x != nil {
+		return x.Reason
 	}
 	return ""
 }
 
 func (x *InstructorChange) GetInstructor() string {
-	if x != nil && x.Instructor != nil {
-		return *x.Instructor
+	if x != nil {
+		return x.Instructor
 	}
 	return ""
 }
 
 func (x *InstructorChange) GetOperator() string {
-	if x != nil && x.Operator != nil {
-		return *x.Operator
+	if x != nil {
+		return x.Operator
 	}
 	return ""
 }
 
 func (x *InstructorChange) GetContact() string {
-	if x != nil && x.Contact != nil {
-		return *x.Contact
+	if x != nil {
+		return x.Contact
 	}
 	return ""
 }
 
 type KickedFromServer struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Reason        *string                `protobuf:"bytes,3,opt,name=reason" json:"reason,omitempty"`
-	Time          *string                `protobuf:"bytes,4,opt,name=time" json:"time,omitempty"`
-	Operator      *string                `protobuf:"bytes,5,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,6,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Reason        string                 `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
+	Time          string                 `protobuf:"bytes,4,opt,name=time,proto3" json:"time,omitempty"`
+	Operator      string                 `protobuf:"bytes,5,opt,name=operator,proto3" json:"operator,omitempty"`
+	Contact       string                 `protobuf:"bytes,6,opt,name=contact,proto3" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -827,54 +827,54 @@ func (*KickedFromServer) Descriptor() ([]byte, []int) {
 }
 
 func (x *KickedFromServer) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *KickedFromServer) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *KickedFromServer) GetReason() string {
-	if x != nil && x.Reason != nil {
-		return *x.Reason
+	if x != nil {
+		return x.Reason
 	}
 	return ""
 }
 
 func (x *KickedFromServer) GetTime() string {
-	if x != nil && x.Time != nil {
-		return *x.Time
+	if x != nil {
+		return x.Time
 	}
 	return ""
 }
 
 func (x *KickedFromServer) GetOperator() string {
-	if x != nil && x.Operator != nil {
-		return *x.Operator
+	if x != nil {
+		return x.Operator
 	}
 	return ""
 }
 
 func (x *KickedFromServer) GetContact() string {
-	if x != nil && x.Contact != nil {
-		return *x.Contact
+	if x != nil {
+		return x.Contact
 	}
 	return ""
 }
 
 type PasswordChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Time          *string                `protobuf:"bytes,3,opt,name=time" json:"time,omitempty"`
-	Ip            *string                `protobuf:"bytes,4,opt,name=ip" json:"ip,omitempty"`
-	UserAgent     *string                `protobuf:"bytes,5,opt,name=userAgent" json:"userAgent,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Time          string                 `protobuf:"bytes,3,opt,name=time,proto3" json:"time,omitempty"`
+	Ip            string                 `protobuf:"bytes,4,opt,name=ip,proto3" json:"ip,omitempty"`
+	UserAgent     string                 `protobuf:"bytes,5,opt,name=userAgent,proto3" json:"userAgent,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -910,47 +910,47 @@ func (*PasswordChange) Descriptor() ([]byte, []int) {
 }
 
 func (x *PasswordChange) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *PasswordChange) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *PasswordChange) GetTime() string {
-	if x != nil && x.Time != nil {
-		return *x.Time
+	if x != nil {
+		return x.Time
 	}
 	return ""
 }
 
 func (x *PasswordChange) GetIp() string {
-	if x != nil && x.Ip != nil {
-		return *x.Ip
+	if x != nil {
+		return x.Ip
 	}
 	return ""
 }
 
 func (x *PasswordChange) GetUserAgent() string {
-	if x != nil && x.UserAgent != nil {
-		return *x.UserAgent
+	if x != nil {
+		return x.UserAgent
 	}
 	return ""
 }
 
 type PasswordReset struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Time          *string                `protobuf:"bytes,3,opt,name=time" json:"time,omitempty"`
-	Ip            *string                `protobuf:"bytes,4,opt,name=ip" json:"ip,omitempty"`
-	UserAgent     *string                `protobuf:"bytes,5,opt,name=userAgent" json:"userAgent,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Time          string                 `protobuf:"bytes,3,opt,name=time,proto3" json:"time,omitempty"`
+	Ip            string                 `protobuf:"bytes,4,opt,name=ip,proto3" json:"ip,omitempty"`
+	UserAgent     string                 `protobuf:"bytes,5,opt,name=userAgent,proto3" json:"userAgent,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -986,47 +986,47 @@ func (*PasswordReset) Descriptor() ([]byte, []int) {
 }
 
 func (x *PasswordReset) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *PasswordReset) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *PasswordReset) GetTime() string {
-	if x != nil && x.Time != nil {
-		return *x.Time
+	if x != nil {
+		return x.Time
 	}
 	return ""
 }
 
 func (x *PasswordReset) GetIp() string {
-	if x != nil && x.Ip != nil {
-		return *x.Ip
+	if x != nil {
+		return x.Ip
 	}
 	return ""
 }
 
 func (x *PasswordReset) GetUserAgent() string {
-	if x != nil && x.UserAgent != nil {
-		return *x.UserAgent
+	if x != nil {
+		return x.UserAgent
 	}
 	return ""
 }
 
 type PermissionChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Permissions   *string                `protobuf:"bytes,3,opt,name=permissions" json:"permissions,omitempty"`
-	Operator      *string                `protobuf:"bytes,4,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Permissions   string                 `protobuf:"bytes,3,opt,name=permissions,proto3" json:"permissions,omitempty"`
+	Operator      string                 `protobuf:"bytes,4,opt,name=operator,proto3" json:"operator,omitempty"`
+	Contact       string                 `protobuf:"bytes,5,opt,name=contact,proto3" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1062,47 +1062,47 @@ func (*PermissionChange) Descriptor() ([]byte, []int) {
 }
 
 func (x *PermissionChange) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *PermissionChange) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *PermissionChange) GetPermissions() string {
-	if x != nil && x.Permissions != nil {
-		return *x.Permissions
+	if x != nil {
+		return x.Permissions
 	}
 	return ""
 }
 
 func (x *PermissionChange) GetOperator() string {
-	if x != nil && x.Operator != nil {
-		return *x.Operator
+	if x != nil {
+		return x.Operator
 	}
 	return ""
 }
 
 func (x *PermissionChange) GetContact() string {
-	if x != nil && x.Contact != nil {
-		return *x.Contact
+	if x != nil {
+		return x.Contact
 	}
 	return ""
 }
 
 type RoleChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Roles         *string                `protobuf:"bytes,3,opt,name=roles" json:"roles,omitempty"`
-	Operator      *string                `protobuf:"bytes,4,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Roles         string                 `protobuf:"bytes,3,opt,name=roles,proto3" json:"roles,omitempty"`
+	Operator      string                 `protobuf:"bytes,4,opt,name=operator,proto3" json:"operator,omitempty"`
+	Contact       string                 `protobuf:"bytes,5,opt,name=contact,proto3" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1138,46 +1138,46 @@ func (*RoleChange) Descriptor() ([]byte, []int) {
 }
 
 func (x *RoleChange) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *RoleChange) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *RoleChange) GetRoles() string {
-	if x != nil && x.Roles != nil {
-		return *x.Roles
+	if x != nil {
+		return x.Roles
 	}
 	return ""
 }
 
 func (x *RoleChange) GetOperator() string {
-	if x != nil && x.Operator != nil {
-		return *x.Operator
+	if x != nil {
+		return x.Operator
 	}
 	return ""
 }
 
 func (x *RoleChange) GetContact() string {
-	if x != nil && x.Contact != nil {
-		return *x.Contact
+	if x != nil {
+		return x.Contact
 	}
 	return ""
 }
 
 type TicketReply struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
-	Title         *string                `protobuf:"bytes,3,opt,name=title" json:"title,omitempty"`
-	Reply         *string                `protobuf:"bytes,4,opt,name=reply" json:"reply,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Title         string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
+	Reply         string                 `protobuf:"bytes,4,opt,name=reply,proto3" json:"reply,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1213,37 +1213,37 @@ func (*TicketReply) Descriptor() ([]byte, []int) {
 }
 
 func (x *TicketReply) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *TicketReply) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 func (x *TicketReply) GetTitle() string {
-	if x != nil && x.Title != nil {
-		return *x.Title
+	if x != nil {
+		return x.Title
 	}
 	return ""
 }
 
 func (x *TicketReply) GetReply() string {
-	if x != nil && x.Reply != nil {
-		return *x.Reply
+	if x != nil {
+		return x.Reply
 	}
 	return ""
 }
 
 type Welcome struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
-	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1279,22 +1279,22 @@ func (*Welcome) Descriptor() ([]byte, []int) {
 }
 
 func (x *Welcome) GetTargetEmail() string {
-	if x != nil && x.TargetEmail != nil {
-		return *x.TargetEmail
+	if x != nil {
+		return x.TargetEmail
 	}
 	return ""
 }
 
 func (x *Welcome) GetCid() string {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return ""
 }
 
 type SendResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Success       *bool                  `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1330,17 +1330,17 @@ func (*SendResponse) Descriptor() ([]byte, []int) {
 }
 
 func (x *SendResponse) GetSuccess() bool {
-	if x != nil && x.Success != nil {
-		return *x.Success
+	if x != nil {
+		return x.Success
 	}
 	return false
 }
 
 type VerifyCode struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *int32                 `protobuf:"varint,1,opt,name=cid" json:"cid,omitempty"`
-	Code          *string                `protobuf:"bytes,2,opt,name=code" json:"code,omitempty"`
-	Email         *string                `protobuf:"bytes,3,opt,name=email" json:"email,omitempty"`
+	Cid           int32                  `protobuf:"varint,1,opt,name=cid,proto3" json:"cid,omitempty"`
+	Code          string                 `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
+	Email         string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1376,30 +1376,30 @@ func (*VerifyCode) Descriptor() ([]byte, []int) {
 }
 
 func (x *VerifyCode) GetCid() int32 {
-	if x != nil && x.Cid != nil {
-		return *x.Cid
+	if x != nil {
+		return x.Cid
 	}
 	return 0
 }
 
 func (x *VerifyCode) GetCode() string {
-	if x != nil && x.Code != nil {
-		return *x.Code
+	if x != nil {
+		return x.Code
 	}
 	return ""
 }
 
 func (x *VerifyCode) GetEmail() string {
-	if x != nil && x.Email != nil {
-		return *x.Email
+	if x != nil {
+		return x.Email
 	}
 	return ""
 }
 
 type VerifyResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Success       *bool                  `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
-	Code          *int32                 `protobuf:"varint,2,opt,name=code" json:"code,omitempty"` // 0 = success, 1 = code expired or not found, 2 = invalid code, 3 = unknown error
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Code          int32                  `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"` // 0 = success, 1 = code expired or not found, 2 = invalid code, 3 = unknown error
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1435,15 +1435,15 @@ func (*VerifyResponse) Descriptor() ([]byte, []int) {
 }
 
 func (x *VerifyResponse) GetSuccess() bool {
-	if x != nil && x.Success != nil {
-		return *x.Success
+	if x != nil {
+		return x.Success
 	}
 	return false
 }
 
 func (x *VerifyResponse) GetCode() int32 {
-	if x != nil && x.Code != nil {
-		return *x.Code
+	if x != nil {
+		return x.Code
 	}
 	return 0
 }
@@ -1584,7 +1584,7 @@ const file_email_proto_rawDesc = "" +
 	"\x0eSendRoleChange\x12\x11.email.RoleChange\x1a\x13.email.SendResponse\x12:\n" +
 	"\x0fSendTicketReply\x12\x12.email.TicketReply\x1a\x13.email.SendResponse\x122\n" +
 	"\vSendWelcome\x12\x0e.email.Welcome\x1a\x13.email.SendResponse\x12;\n" +
-	"\x0fVerifyEmailCode\x12\x11.email.VerifyCode\x1a\x15.email.VerifyResponseB\x15Z\x13src/interfaces/grpcb\beditionsp\xe8\a"
+	"\x0fVerifyEmailCode\x12\x11.email.VerifyCode\x1a\x15.email.VerifyResponseB\x15Z\x13src/interfaces/grpcb\x06proto3"
 
 var (
 	file_email_proto_rawDescOnce sync.Once
