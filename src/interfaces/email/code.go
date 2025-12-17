@@ -21,6 +21,6 @@ var (
 )
 
 type CodeManagerInterface interface {
-	GenerateEmailCode(target string, cid int) (string, time.Duration, error)
+	GenerateEmailCode(target string, cid int) (*VerifyCodeEmail, time.Duration, error)
 	VerifyEmailCode(target string, cid int, code string) error
 }

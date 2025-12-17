@@ -7,6 +7,7 @@ package email
 import (
 	"email-service/src/interfaces/config"
 	"email-service/src/interfaces/email"
+	"fmt"
 	"time"
 
 	"github.com/thanhpk/randstr"
@@ -35,14 +36,21 @@ func NewCodeManager(
 	}
 }
 
-func (c *CodeManager) GenerateEmailCode(target string, cid int) (string, time.Duration, error) {
+func (c *CodeManager) GenerateEmailCode(target string, cid int) (*email.VerifyCodeEmail, time.Duration, error) {
 	if val, ok := c.sendCache.Get(target); ok {
-		return "", val.Add(c.config.VerifyIntervalDuration).Sub(time.Now()), email.ErrEmailCodeCooldown
+		return nil, val.Add(c.config.VerifyIntervalDuration).Sub(time.Now()), email.ErrEmailCodeCooldown
 	}
 	code := randstr.String(6)
-	c.cache.SetWithTTL(target, &email.CodeData{Cid: cid, Code: code}, c.config.VerifyExpireDuration)
+	now := time.Now()
+	expireAt := now.Add(c.config.VerifyExpireDuration)
+	c.cache.Set(target, &email.CodeData{Cid: cid, Code: code}, expireAt)
 	c.sendCache.SetWithTTL(target, time.Now(), c.config.VerifyIntervalDuration)
-	return code, time.Duration(0), nil
+	return &email.VerifyCodeEmail{
+		Cid:       fmt.Sprintf("%04d", cid),
+		Code:      code,
+		Expired:   fmt.Sprintf("%.0f", c.config.VerifyExpireDuration.Minutes()),
+		ExpiredAt: expireAt.Format(time.RFC3339),
+	}, time.Duration(0), nil
 }
 
 func (c *CodeManager) VerifyEmailCode(target string, cid int, code string) error {

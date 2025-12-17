@@ -46,7 +46,7 @@ func (sender *Sender) SendEmail(emailType config.Email, target string, data inte
 
 	target = strings.ToLower(target)
 
-	m, err := sender.generateEmail(target, config.EmailActivityAtcJoin, data)
+	m, err := sender.generateEmail(target, emailType, data)
 	if err != nil {
 		sender.logger.Errorf("failed to generate %s email: %s", emailType.Value, err.Error())
 		return err
