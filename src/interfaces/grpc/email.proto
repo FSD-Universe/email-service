@@ -8,130 +8,147 @@ option go_package = "src/interfaces/grpc";
 package email;
 
 message ActivityAtcJoin {
-  string cid = 1;
-  string activityName = 2;
-  string activityTime = 3;
-  string facility = 4;
-  string frequency = 5;
+  string targetEmail = 1;
+  string cid = 2;
+  string activityName = 3;
+  string activityTime = 4;
+  string facility = 5;
+  string frequency = 6;
 }
 
 message ActivityAtcLeave {
-  string cid = 1;
-  string activityName = 2;
+  string targetEmail = 1;
+  string cid = 2;
+  string activityName = 3;
 }
 
 message ActivityPilotJoin {
-  string cid = 1;
-  string activityName = 2;
-  string activityTime = 3;
-  string callsign = 4;
-  string aircraft = 5;
+  string targetEmail = 1;
+  string cid = 2;
+  string activityName = 3;
+  string activityTime = 4;
+  string callsign = 5;
+  string aircraft = 6;
 }
 
 message ActivityPilotLeave {
-  string cid = 1;
-  string activityName = 2;
+  string targetEmail = 1;
+  string cid = 2;
+  string activityName = 3;
 }
 
 message ApplicationPassed {
-  string cid = 1;
-  string operator = 2;
-  string message = 3;
-  string contact = 4;
+  string targetEmail = 1;
+  string cid = 2;
+  string operator = 3;
+  string message = 4;
+  string contact = 5;
 }
 
 message ApplicationProcessing {
-  string cid = 1;
-  string time = 2;
-  string contact = 3;
+  string targetEmail = 1;
+  string cid = 2;
+  string time = 3;
+  string contact = 4;
 }
 
 message ApplicationRejected {
-  string cid = 1;
-  string operator = 2;
-  string reason = 3;
-  string contact = 4;
+  string targetEmail = 1;
+  string cid = 2;
+  string operator = 3;
+  string reason = 4;
+  string contact = 5;
 }
 
 message AtcRatingChange {
-  string cid = 1;
-  string newValue = 2;
-  string oldValue = 3;
-  string operator = 4;
-  string contact = 5;
+  string targetEmail = 1;
+  string cid = 2;
+  string newValue = 3;
+  string oldValue = 4;
+  string operator = 5;
+  string contact = 6;
 }
 
 message Banned {
-  string cid = 1;
-  string reason = 2;
-  string time = 3;
-  string operator = 4;
-  string contact = 5;
+  string targetEmail = 1;
+  string cid = 2;
+  string reason = 3;
+  string time = 4;
+  string operator = 5;
+  string contact = 6;
 }
 
 message InstructorChange {
-  string cid = 1;
-  string reason = 2;
-  string instructor = 3;
-  string operator = 4;
-  string contact = 5;
+  string targetEmail = 1;
+  string cid = 2;
+  string reason = 3;
+  string instructor = 4;
+  string operator = 5;
+  string contact = 6;
 }
 
 message KickedFromServer {
-  string cid = 1;
-  string reason = 2;
+  string targetEmail = 1;
+  string cid = 2;
+  string reason = 3;
+  string time = 4;
+  string operator = 5;
+  string contact = 6;
+}
+
+message PasswordChange {
+  string targetEmail = 1;
+  string cid = 2;
   string time = 3;
+  string ip = 4;
+  string userAgent = 5;
+}
+
+message PasswordReset {
+  string targetEmail = 1;
+  string cid = 2;
+  string time = 3;
+  string ip = 4;
+  string userAgent = 5;
+}
+
+message PermissionChange {
+  string targetEmail = 1;
+  string cid = 2;
+  string permissions = 3;
   string operator = 4;
   string contact = 5;
 }
 
-message PasswordChange {
-  string cid = 1;
-  string time = 2;
-  string ip = 3;
-  string userAgent = 4;
-}
-
-message PasswordReset {
-  string cid = 1;
-  string time = 2;
-  string ip = 3;
-  string userAgent = 4;
-}
-
-message PermissionChange {
-  string cid = 1;
-  string permissions = 2;
-  string operator = 3;
-  string contact = 4;
-}
-
 message RoleChange {
-  string cid = 1;
-  string roles = 2;
-  string operator = 3;
-  string contact = 4;
+  string targetEmail = 1;
+  string cid = 2;
+  string roles = 3;
+  string operator = 4;
+  string contact = 5;
 }
 
 message TicketReply {
-  string cid = 1;
-  string title = 2;
-  string reply = 3;
+  string targetEmail = 1;
+  string cid = 2;
+  string title = 3;
+  string reply = 4;
 }
 
 message Welcome {
-  string cid = 1;
+  string targetEmail = 1;
+  string cid = 2;
+}
+
+message SendResponse {
+  bool success = 1;
+  string message = 2;
 }
 
 message VerifyCode {
   string cid = 1;
   string code = 2;
   string email = 3;
-}
-
-message SendResponse {
-  bool success = 1;
-  string message = 2;
 }
 
 message VerifyResponse {

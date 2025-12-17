@@ -26,11 +26,12 @@ const (
 
 type ActivityAtcJoin struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	ActivityName  *string                `protobuf:"bytes,2,opt,name=activityName" json:"activityName,omitempty"`
-	ActivityTime  *string                `protobuf:"bytes,3,opt,name=activityTime" json:"activityTime,omitempty"`
-	Facility      *string                `protobuf:"bytes,4,opt,name=facility" json:"facility,omitempty"`
-	Frequency     *string                `protobuf:"bytes,5,opt,name=frequency" json:"frequency,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	ActivityName  *string                `protobuf:"bytes,3,opt,name=activityName" json:"activityName,omitempty"`
+	ActivityTime  *string                `protobuf:"bytes,4,opt,name=activityTime" json:"activityTime,omitempty"`
+	Facility      *string                `protobuf:"bytes,5,opt,name=facility" json:"facility,omitempty"`
+	Frequency     *string                `protobuf:"bytes,6,opt,name=frequency" json:"frequency,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -63,6 +64,13 @@ func (x *ActivityAtcJoin) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ActivityAtcJoin.ProtoReflect.Descriptor instead.
 func (*ActivityAtcJoin) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ActivityAtcJoin) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
 }
 
 func (x *ActivityAtcJoin) GetCid() string {
@@ -102,8 +110,9 @@ func (x *ActivityAtcJoin) GetFrequency() string {
 
 type ActivityAtcLeave struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	ActivityName  *string                `protobuf:"bytes,2,opt,name=activityName" json:"activityName,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	ActivityName  *string                `protobuf:"bytes,3,opt,name=activityName" json:"activityName,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -138,6 +147,13 @@ func (*ActivityAtcLeave) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{1}
 }
 
+func (x *ActivityAtcLeave) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *ActivityAtcLeave) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -154,11 +170,12 @@ func (x *ActivityAtcLeave) GetActivityName() string {
 
 type ActivityPilotJoin struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	ActivityName  *string                `protobuf:"bytes,2,opt,name=activityName" json:"activityName,omitempty"`
-	ActivityTime  *string                `protobuf:"bytes,3,opt,name=activityTime" json:"activityTime,omitempty"`
-	Callsign      *string                `protobuf:"bytes,4,opt,name=callsign" json:"callsign,omitempty"`
-	Aircraft      *string                `protobuf:"bytes,5,opt,name=aircraft" json:"aircraft,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	ActivityName  *string                `protobuf:"bytes,3,opt,name=activityName" json:"activityName,omitempty"`
+	ActivityTime  *string                `protobuf:"bytes,4,opt,name=activityTime" json:"activityTime,omitempty"`
+	Callsign      *string                `protobuf:"bytes,5,opt,name=callsign" json:"callsign,omitempty"`
+	Aircraft      *string                `protobuf:"bytes,6,opt,name=aircraft" json:"aircraft,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -191,6 +208,13 @@ func (x *ActivityPilotJoin) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ActivityPilotJoin.ProtoReflect.Descriptor instead.
 func (*ActivityPilotJoin) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ActivityPilotJoin) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
 }
 
 func (x *ActivityPilotJoin) GetCid() string {
@@ -230,8 +254,9 @@ func (x *ActivityPilotJoin) GetAircraft() string {
 
 type ActivityPilotLeave struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	ActivityName  *string                `protobuf:"bytes,2,opt,name=activityName" json:"activityName,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	ActivityName  *string                `protobuf:"bytes,3,opt,name=activityName" json:"activityName,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -266,6 +291,13 @@ func (*ActivityPilotLeave) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{3}
 }
 
+func (x *ActivityPilotLeave) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *ActivityPilotLeave) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -282,10 +314,11 @@ func (x *ActivityPilotLeave) GetActivityName() string {
 
 type ApplicationPassed struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Operator      *string                `protobuf:"bytes,2,opt,name=operator" json:"operator,omitempty"`
-	Message       *string                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Contact       *string                `protobuf:"bytes,4,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Operator      *string                `protobuf:"bytes,3,opt,name=operator" json:"operator,omitempty"`
+	Message       *string                `protobuf:"bytes,4,opt,name=message" json:"message,omitempty"`
+	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -320,6 +353,13 @@ func (*ApplicationPassed) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{4}
 }
 
+func (x *ApplicationPassed) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *ApplicationPassed) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -350,9 +390,10 @@ func (x *ApplicationPassed) GetContact() string {
 
 type ApplicationProcessing struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Time          *string                `protobuf:"bytes,2,opt,name=time" json:"time,omitempty"`
-	Contact       *string                `protobuf:"bytes,3,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Time          *string                `protobuf:"bytes,3,opt,name=time" json:"time,omitempty"`
+	Contact       *string                `protobuf:"bytes,4,opt,name=contact" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -387,6 +428,13 @@ func (*ApplicationProcessing) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{5}
 }
 
+func (x *ApplicationProcessing) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *ApplicationProcessing) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -410,10 +458,11 @@ func (x *ApplicationProcessing) GetContact() string {
 
 type ApplicationRejected struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Operator      *string                `protobuf:"bytes,2,opt,name=operator" json:"operator,omitempty"`
-	Reason        *string                `protobuf:"bytes,3,opt,name=reason" json:"reason,omitempty"`
-	Contact       *string                `protobuf:"bytes,4,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Operator      *string                `protobuf:"bytes,3,opt,name=operator" json:"operator,omitempty"`
+	Reason        *string                `protobuf:"bytes,4,opt,name=reason" json:"reason,omitempty"`
+	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -448,6 +497,13 @@ func (*ApplicationRejected) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{6}
 }
 
+func (x *ApplicationRejected) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *ApplicationRejected) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -478,11 +534,12 @@ func (x *ApplicationRejected) GetContact() string {
 
 type AtcRatingChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	NewValue      *string                `protobuf:"bytes,2,opt,name=newValue" json:"newValue,omitempty"`
-	OldValue      *string                `protobuf:"bytes,3,opt,name=oldValue" json:"oldValue,omitempty"`
-	Operator      *string                `protobuf:"bytes,4,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	NewValue      *string                `protobuf:"bytes,3,opt,name=newValue" json:"newValue,omitempty"`
+	OldValue      *string                `protobuf:"bytes,4,opt,name=oldValue" json:"oldValue,omitempty"`
+	Operator      *string                `protobuf:"bytes,5,opt,name=operator" json:"operator,omitempty"`
+	Contact       *string                `protobuf:"bytes,6,opt,name=contact" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -515,6 +572,13 @@ func (x *AtcRatingChange) ProtoReflect() protoreflect.Message {
 // Deprecated: Use AtcRatingChange.ProtoReflect.Descriptor instead.
 func (*AtcRatingChange) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *AtcRatingChange) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
 }
 
 func (x *AtcRatingChange) GetCid() string {
@@ -554,11 +618,12 @@ func (x *AtcRatingChange) GetContact() string {
 
 type Banned struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Reason        *string                `protobuf:"bytes,2,opt,name=reason" json:"reason,omitempty"`
-	Time          *string                `protobuf:"bytes,3,opt,name=time" json:"time,omitempty"`
-	Operator      *string                `protobuf:"bytes,4,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Reason        *string                `protobuf:"bytes,3,opt,name=reason" json:"reason,omitempty"`
+	Time          *string                `protobuf:"bytes,4,opt,name=time" json:"time,omitempty"`
+	Operator      *string                `protobuf:"bytes,5,opt,name=operator" json:"operator,omitempty"`
+	Contact       *string                `protobuf:"bytes,6,opt,name=contact" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -591,6 +656,13 @@ func (x *Banned) ProtoReflect() protoreflect.Message {
 // Deprecated: Use Banned.ProtoReflect.Descriptor instead.
 func (*Banned) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *Banned) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
 }
 
 func (x *Banned) GetCid() string {
@@ -630,11 +702,12 @@ func (x *Banned) GetContact() string {
 
 type InstructorChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Reason        *string                `protobuf:"bytes,2,opt,name=reason" json:"reason,omitempty"`
-	Instructor    *string                `protobuf:"bytes,3,opt,name=instructor" json:"instructor,omitempty"`
-	Operator      *string                `protobuf:"bytes,4,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Reason        *string                `protobuf:"bytes,3,opt,name=reason" json:"reason,omitempty"`
+	Instructor    *string                `protobuf:"bytes,4,opt,name=instructor" json:"instructor,omitempty"`
+	Operator      *string                `protobuf:"bytes,5,opt,name=operator" json:"operator,omitempty"`
+	Contact       *string                `protobuf:"bytes,6,opt,name=contact" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -667,6 +740,13 @@ func (x *InstructorChange) ProtoReflect() protoreflect.Message {
 // Deprecated: Use InstructorChange.ProtoReflect.Descriptor instead.
 func (*InstructorChange) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *InstructorChange) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
 }
 
 func (x *InstructorChange) GetCid() string {
@@ -706,11 +786,12 @@ func (x *InstructorChange) GetContact() string {
 
 type KickedFromServer struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Reason        *string                `protobuf:"bytes,2,opt,name=reason" json:"reason,omitempty"`
-	Time          *string                `protobuf:"bytes,3,opt,name=time" json:"time,omitempty"`
-	Operator      *string                `protobuf:"bytes,4,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Reason        *string                `protobuf:"bytes,3,opt,name=reason" json:"reason,omitempty"`
+	Time          *string                `protobuf:"bytes,4,opt,name=time" json:"time,omitempty"`
+	Operator      *string                `protobuf:"bytes,5,opt,name=operator" json:"operator,omitempty"`
+	Contact       *string                `protobuf:"bytes,6,opt,name=contact" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -743,6 +824,13 @@ func (x *KickedFromServer) ProtoReflect() protoreflect.Message {
 // Deprecated: Use KickedFromServer.ProtoReflect.Descriptor instead.
 func (*KickedFromServer) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *KickedFromServer) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
 }
 
 func (x *KickedFromServer) GetCid() string {
@@ -782,10 +870,11 @@ func (x *KickedFromServer) GetContact() string {
 
 type PasswordChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Time          *string                `protobuf:"bytes,2,opt,name=time" json:"time,omitempty"`
-	Ip            *string                `protobuf:"bytes,3,opt,name=ip" json:"ip,omitempty"`
-	UserAgent     *string                `protobuf:"bytes,4,opt,name=userAgent" json:"userAgent,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Time          *string                `protobuf:"bytes,3,opt,name=time" json:"time,omitempty"`
+	Ip            *string                `protobuf:"bytes,4,opt,name=ip" json:"ip,omitempty"`
+	UserAgent     *string                `protobuf:"bytes,5,opt,name=userAgent" json:"userAgent,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -820,6 +909,13 @@ func (*PasswordChange) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{11}
 }
 
+func (x *PasswordChange) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *PasswordChange) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -850,10 +946,11 @@ func (x *PasswordChange) GetUserAgent() string {
 
 type PasswordReset struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Time          *string                `protobuf:"bytes,2,opt,name=time" json:"time,omitempty"`
-	Ip            *string                `protobuf:"bytes,3,opt,name=ip" json:"ip,omitempty"`
-	UserAgent     *string                `protobuf:"bytes,4,opt,name=userAgent" json:"userAgent,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Time          *string                `protobuf:"bytes,3,opt,name=time" json:"time,omitempty"`
+	Ip            *string                `protobuf:"bytes,4,opt,name=ip" json:"ip,omitempty"`
+	UserAgent     *string                `protobuf:"bytes,5,opt,name=userAgent" json:"userAgent,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -888,6 +985,13 @@ func (*PasswordReset) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{12}
 }
 
+func (x *PasswordReset) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *PasswordReset) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -918,10 +1022,11 @@ func (x *PasswordReset) GetUserAgent() string {
 
 type PermissionChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Permissions   *string                `protobuf:"bytes,2,opt,name=permissions" json:"permissions,omitempty"`
-	Operator      *string                `protobuf:"bytes,3,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,4,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Permissions   *string                `protobuf:"bytes,3,opt,name=permissions" json:"permissions,omitempty"`
+	Operator      *string                `protobuf:"bytes,4,opt,name=operator" json:"operator,omitempty"`
+	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -956,6 +1061,13 @@ func (*PermissionChange) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{13}
 }
 
+func (x *PermissionChange) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *PermissionChange) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -986,10 +1098,11 @@ func (x *PermissionChange) GetContact() string {
 
 type RoleChange struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Roles         *string                `protobuf:"bytes,2,opt,name=roles" json:"roles,omitempty"`
-	Operator      *string                `protobuf:"bytes,3,opt,name=operator" json:"operator,omitempty"`
-	Contact       *string                `protobuf:"bytes,4,opt,name=contact" json:"contact,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Roles         *string                `protobuf:"bytes,3,opt,name=roles" json:"roles,omitempty"`
+	Operator      *string                `protobuf:"bytes,4,opt,name=operator" json:"operator,omitempty"`
+	Contact       *string                `protobuf:"bytes,5,opt,name=contact" json:"contact,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1024,6 +1137,13 @@ func (*RoleChange) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{14}
 }
 
+func (x *RoleChange) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *RoleChange) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -1054,9 +1174,10 @@ func (x *RoleChange) GetContact() string {
 
 type TicketReply struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
-	Title         *string                `protobuf:"bytes,2,opt,name=title" json:"title,omitempty"`
-	Reply         *string                `protobuf:"bytes,3,opt,name=reply" json:"reply,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
+	Title         *string                `protobuf:"bytes,3,opt,name=title" json:"title,omitempty"`
+	Reply         *string                `protobuf:"bytes,4,opt,name=reply" json:"reply,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1091,6 +1212,13 @@ func (*TicketReply) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{15}
 }
 
+func (x *TicketReply) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *TicketReply) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
@@ -1114,7 +1242,8 @@ func (x *TicketReply) GetReply() string {
 
 type Welcome struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           *string                `protobuf:"bytes,1,opt,name=cid" json:"cid,omitempty"`
+	TargetEmail   *string                `protobuf:"bytes,1,opt,name=targetEmail" json:"targetEmail,omitempty"`
+	Cid           *string                `protobuf:"bytes,2,opt,name=cid" json:"cid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1149,9 +1278,68 @@ func (*Welcome) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{16}
 }
 
+func (x *Welcome) GetTargetEmail() string {
+	if x != nil && x.TargetEmail != nil {
+		return *x.TargetEmail
+	}
+	return ""
+}
+
 func (x *Welcome) GetCid() string {
 	if x != nil && x.Cid != nil {
 		return *x.Cid
+	}
+	return ""
+}
+
+type SendResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       *bool                  `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
+	Message       *string                `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendResponse) Reset() {
+	*x = SendResponse{}
+	mi := &file_email_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendResponse) ProtoMessage() {}
+
+func (x *SendResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_email_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendResponse.ProtoReflect.Descriptor instead.
+func (*SendResponse) Descriptor() ([]byte, []int) {
+	return file_email_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *SendResponse) GetSuccess() bool {
+	if x != nil && x.Success != nil {
+		return *x.Success
+	}
+	return false
+}
+
+func (x *SendResponse) GetMessage() string {
+	if x != nil && x.Message != nil {
+		return *x.Message
 	}
 	return ""
 }
@@ -1167,7 +1355,7 @@ type VerifyCode struct {
 
 func (x *VerifyCode) Reset() {
 	*x = VerifyCode{}
-	mi := &file_email_proto_msgTypes[17]
+	mi := &file_email_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1179,7 +1367,7 @@ func (x *VerifyCode) String() string {
 func (*VerifyCode) ProtoMessage() {}
 
 func (x *VerifyCode) ProtoReflect() protoreflect.Message {
-	mi := &file_email_proto_msgTypes[17]
+	mi := &file_email_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1192,7 +1380,7 @@ func (x *VerifyCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyCode.ProtoReflect.Descriptor instead.
 func (*VerifyCode) Descriptor() ([]byte, []int) {
-	return file_email_proto_rawDescGZIP(), []int{17}
+	return file_email_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *VerifyCode) GetCid() string {
@@ -1212,58 +1400,6 @@ func (x *VerifyCode) GetCode() string {
 func (x *VerifyCode) GetEmail() string {
 	if x != nil && x.Email != nil {
 		return *x.Email
-	}
-	return ""
-}
-
-type SendResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Success       *bool                  `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
-	Message       *string                `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SendResponse) Reset() {
-	*x = SendResponse{}
-	mi := &file_email_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SendResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SendResponse) ProtoMessage() {}
-
-func (x *SendResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_email_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SendResponse.ProtoReflect.Descriptor instead.
-func (*SendResponse) Descriptor() ([]byte, []int) {
-	return file_email_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *SendResponse) GetSuccess() bool {
-	if x != nil && x.Success != nil {
-		return *x.Success
-	}
-	return false
-}
-
-func (x *SendResponse) GetMessage() string {
-	if x != nil && x.Message != nil {
-		return *x.Message
 	}
 	return ""
 }
@@ -1324,100 +1460,117 @@ var File_email_proto protoreflect.FileDescriptor
 
 const file_email_proto_rawDesc = "" +
 	"\n" +
-	"\vemail.proto\x12\x05email\"\xa5\x01\n" +
-	"\x0fActivityAtcJoin\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\"\n" +
-	"\factivityName\x18\x02 \x01(\tR\factivityName\x12\"\n" +
-	"\factivityTime\x18\x03 \x01(\tR\factivityTime\x12\x1a\n" +
-	"\bfacility\x18\x04 \x01(\tR\bfacility\x12\x1c\n" +
-	"\tfrequency\x18\x05 \x01(\tR\tfrequency\"H\n" +
-	"\x10ActivityAtcLeave\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\"\n" +
-	"\factivityName\x18\x02 \x01(\tR\factivityName\"\xa5\x01\n" +
-	"\x11ActivityPilotJoin\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\"\n" +
-	"\factivityName\x18\x02 \x01(\tR\factivityName\x12\"\n" +
-	"\factivityTime\x18\x03 \x01(\tR\factivityTime\x12\x1a\n" +
-	"\bcallsign\x18\x04 \x01(\tR\bcallsign\x12\x1a\n" +
-	"\baircraft\x18\x05 \x01(\tR\baircraft\"J\n" +
-	"\x12ActivityPilotLeave\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\"\n" +
-	"\factivityName\x18\x02 \x01(\tR\factivityName\"u\n" +
-	"\x11ApplicationPassed\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x1a\n" +
-	"\boperator\x18\x02 \x01(\tR\boperator\x12\x18\n" +
-	"\amessage\x18\x03 \x01(\tR\amessage\x12\x18\n" +
-	"\acontact\x18\x04 \x01(\tR\acontact\"W\n" +
-	"\x15ApplicationProcessing\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x12\n" +
-	"\x04time\x18\x02 \x01(\tR\x04time\x12\x18\n" +
-	"\acontact\x18\x03 \x01(\tR\acontact\"u\n" +
-	"\x13ApplicationRejected\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x1a\n" +
-	"\boperator\x18\x02 \x01(\tR\boperator\x12\x16\n" +
-	"\x06reason\x18\x03 \x01(\tR\x06reason\x12\x18\n" +
-	"\acontact\x18\x04 \x01(\tR\acontact\"\x91\x01\n" +
-	"\x0fAtcRatingChange\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x1a\n" +
-	"\bnewValue\x18\x02 \x01(\tR\bnewValue\x12\x1a\n" +
-	"\boldValue\x18\x03 \x01(\tR\boldValue\x12\x1a\n" +
-	"\boperator\x18\x04 \x01(\tR\boperator\x12\x18\n" +
-	"\acontact\x18\x05 \x01(\tR\acontact\"|\n" +
-	"\x06Banned\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x16\n" +
-	"\x06reason\x18\x02 \x01(\tR\x06reason\x12\x12\n" +
-	"\x04time\x18\x03 \x01(\tR\x04time\x12\x1a\n" +
-	"\boperator\x18\x04 \x01(\tR\boperator\x12\x18\n" +
-	"\acontact\x18\x05 \x01(\tR\acontact\"\x92\x01\n" +
-	"\x10InstructorChange\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x16\n" +
-	"\x06reason\x18\x02 \x01(\tR\x06reason\x12\x1e\n" +
+	"\vemail.proto\x12\x05email\"\xc7\x01\n" +
+	"\x0fActivityAtcJoin\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\"\n" +
+	"\factivityName\x18\x03 \x01(\tR\factivityName\x12\"\n" +
+	"\factivityTime\x18\x04 \x01(\tR\factivityTime\x12\x1a\n" +
+	"\bfacility\x18\x05 \x01(\tR\bfacility\x12\x1c\n" +
+	"\tfrequency\x18\x06 \x01(\tR\tfrequency\"j\n" +
+	"\x10ActivityAtcLeave\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\"\n" +
+	"\factivityName\x18\x03 \x01(\tR\factivityName\"\xc7\x01\n" +
+	"\x11ActivityPilotJoin\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\"\n" +
+	"\factivityName\x18\x03 \x01(\tR\factivityName\x12\"\n" +
+	"\factivityTime\x18\x04 \x01(\tR\factivityTime\x12\x1a\n" +
+	"\bcallsign\x18\x05 \x01(\tR\bcallsign\x12\x1a\n" +
+	"\baircraft\x18\x06 \x01(\tR\baircraft\"l\n" +
+	"\x12ActivityPilotLeave\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\"\n" +
+	"\factivityName\x18\x03 \x01(\tR\factivityName\"\x97\x01\n" +
+	"\x11ApplicationPassed\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x1a\n" +
+	"\boperator\x18\x03 \x01(\tR\boperator\x12\x18\n" +
+	"\amessage\x18\x04 \x01(\tR\amessage\x12\x18\n" +
+	"\acontact\x18\x05 \x01(\tR\acontact\"y\n" +
+	"\x15ApplicationProcessing\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x12\n" +
+	"\x04time\x18\x03 \x01(\tR\x04time\x12\x18\n" +
+	"\acontact\x18\x04 \x01(\tR\acontact\"\x97\x01\n" +
+	"\x13ApplicationRejected\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x1a\n" +
+	"\boperator\x18\x03 \x01(\tR\boperator\x12\x16\n" +
+	"\x06reason\x18\x04 \x01(\tR\x06reason\x12\x18\n" +
+	"\acontact\x18\x05 \x01(\tR\acontact\"\xb3\x01\n" +
+	"\x0fAtcRatingChange\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x1a\n" +
+	"\bnewValue\x18\x03 \x01(\tR\bnewValue\x12\x1a\n" +
+	"\boldValue\x18\x04 \x01(\tR\boldValue\x12\x1a\n" +
+	"\boperator\x18\x05 \x01(\tR\boperator\x12\x18\n" +
+	"\acontact\x18\x06 \x01(\tR\acontact\"\x9e\x01\n" +
+	"\x06Banned\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x16\n" +
+	"\x06reason\x18\x03 \x01(\tR\x06reason\x12\x12\n" +
+	"\x04time\x18\x04 \x01(\tR\x04time\x12\x1a\n" +
+	"\boperator\x18\x05 \x01(\tR\boperator\x12\x18\n" +
+	"\acontact\x18\x06 \x01(\tR\acontact\"\xb4\x01\n" +
+	"\x10InstructorChange\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x16\n" +
+	"\x06reason\x18\x03 \x01(\tR\x06reason\x12\x1e\n" +
 	"\n" +
-	"instructor\x18\x03 \x01(\tR\n" +
+	"instructor\x18\x04 \x01(\tR\n" +
 	"instructor\x12\x1a\n" +
+	"\boperator\x18\x05 \x01(\tR\boperator\x12\x18\n" +
+	"\acontact\x18\x06 \x01(\tR\acontact\"\xa8\x01\n" +
+	"\x10KickedFromServer\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x16\n" +
+	"\x06reason\x18\x03 \x01(\tR\x06reason\x12\x12\n" +
+	"\x04time\x18\x04 \x01(\tR\x04time\x12\x1a\n" +
+	"\boperator\x18\x05 \x01(\tR\boperator\x12\x18\n" +
+	"\acontact\x18\x06 \x01(\tR\acontact\"\x86\x01\n" +
+	"\x0ePasswordChange\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x12\n" +
+	"\x04time\x18\x03 \x01(\tR\x04time\x12\x0e\n" +
+	"\x02ip\x18\x04 \x01(\tR\x02ip\x12\x1c\n" +
+	"\tuserAgent\x18\x05 \x01(\tR\tuserAgent\"\x85\x01\n" +
+	"\rPasswordReset\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x12\n" +
+	"\x04time\x18\x03 \x01(\tR\x04time\x12\x0e\n" +
+	"\x02ip\x18\x04 \x01(\tR\x02ip\x12\x1c\n" +
+	"\tuserAgent\x18\x05 \x01(\tR\tuserAgent\"\x9e\x01\n" +
+	"\x10PermissionChange\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12 \n" +
+	"\vpermissions\x18\x03 \x01(\tR\vpermissions\x12\x1a\n" +
 	"\boperator\x18\x04 \x01(\tR\boperator\x12\x18\n" +
-	"\acontact\x18\x05 \x01(\tR\acontact\"\x86\x01\n" +
-	"\x10KickedFromServer\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x16\n" +
-	"\x06reason\x18\x02 \x01(\tR\x06reason\x12\x12\n" +
-	"\x04time\x18\x03 \x01(\tR\x04time\x12\x1a\n" +
-	"\boperator\x18\x04 \x01(\tR\boperator\x12\x18\n" +
-	"\acontact\x18\x05 \x01(\tR\acontact\"d\n" +
-	"\x0ePasswordChange\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x12\n" +
-	"\x04time\x18\x02 \x01(\tR\x04time\x12\x0e\n" +
-	"\x02ip\x18\x03 \x01(\tR\x02ip\x12\x1c\n" +
-	"\tuserAgent\x18\x04 \x01(\tR\tuserAgent\"c\n" +
-	"\rPasswordReset\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x12\n" +
-	"\x04time\x18\x02 \x01(\tR\x04time\x12\x0e\n" +
-	"\x02ip\x18\x03 \x01(\tR\x02ip\x12\x1c\n" +
-	"\tuserAgent\x18\x04 \x01(\tR\tuserAgent\"|\n" +
-	"\x10PermissionChange\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12 \n" +
-	"\vpermissions\x18\x02 \x01(\tR\vpermissions\x12\x1a\n" +
-	"\boperator\x18\x03 \x01(\tR\boperator\x12\x18\n" +
-	"\acontact\x18\x04 \x01(\tR\acontact\"j\n" +
+	"\acontact\x18\x05 \x01(\tR\acontact\"\x8c\x01\n" +
 	"\n" +
-	"RoleChange\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x14\n" +
-	"\x05roles\x18\x02 \x01(\tR\x05roles\x12\x1a\n" +
-	"\boperator\x18\x03 \x01(\tR\boperator\x12\x18\n" +
-	"\acontact\x18\x04 \x01(\tR\acontact\"K\n" +
-	"\vTicketReply\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x14\n" +
-	"\x05title\x18\x02 \x01(\tR\x05title\x12\x14\n" +
-	"\x05reply\x18\x03 \x01(\tR\x05reply\"\x1b\n" +
-	"\aWelcome\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\tR\x03cid\"H\n" +
+	"RoleChange\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x14\n" +
+	"\x05roles\x18\x03 \x01(\tR\x05roles\x12\x1a\n" +
+	"\boperator\x18\x04 \x01(\tR\boperator\x12\x18\n" +
+	"\acontact\x18\x05 \x01(\tR\acontact\"m\n" +
+	"\vTicketReply\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x14\n" +
+	"\x05title\x18\x03 \x01(\tR\x05title\x12\x14\n" +
+	"\x05reply\x18\x04 \x01(\tR\x05reply\"=\n" +
+	"\aWelcome\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\"B\n" +
+	"\fSendResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"H\n" +
 	"\n" +
 	"VerifyCode\x12\x10\n" +
 	"\x03cid\x18\x01 \x01(\tR\x03cid\x12\x12\n" +
 	"\x04code\x18\x02 \x01(\tR\x04code\x12\x14\n" +
-	"\x05email\x18\x03 \x01(\tR\x05email\"B\n" +
-	"\fSendResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\">\n" +
+	"\x05email\x18\x03 \x01(\tR\x05email\">\n" +
 	"\x0eVerifyResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x12\n" +
 	"\x04code\x18\x02 \x01(\x05R\x04code2\xb8\t\n" +
@@ -1473,8 +1626,8 @@ var file_email_proto_goTypes = []any{
 	(*RoleChange)(nil),            // 14: email.RoleChange
 	(*TicketReply)(nil),           // 15: email.TicketReply
 	(*Welcome)(nil),               // 16: email.Welcome
-	(*VerifyCode)(nil),            // 17: email.VerifyCode
-	(*SendResponse)(nil),          // 18: email.SendResponse
+	(*SendResponse)(nil),          // 17: email.SendResponse
+	(*VerifyCode)(nil),            // 18: email.VerifyCode
 	(*VerifyResponse)(nil),        // 19: email.VerifyResponse
 }
 var file_email_proto_depIdxs = []int32{
@@ -1495,24 +1648,24 @@ var file_email_proto_depIdxs = []int32{
 	14, // 14: email.Email.SendRoleChange:input_type -> email.RoleChange
 	15, // 15: email.Email.SendTicketReply:input_type -> email.TicketReply
 	16, // 16: email.Email.SendWelcome:input_type -> email.Welcome
-	17, // 17: email.Email.VerifyEmailCode:input_type -> email.VerifyCode
-	18, // 18: email.Email.SendActivityAtcJoin:output_type -> email.SendResponse
-	18, // 19: email.Email.SendActivityAtcLeave:output_type -> email.SendResponse
-	18, // 20: email.Email.SendActivityPilotJoin:output_type -> email.SendResponse
-	18, // 21: email.Email.SendActivityPilotLeave:output_type -> email.SendResponse
-	18, // 22: email.Email.SendApplicationPassed:output_type -> email.SendResponse
-	18, // 23: email.Email.SendApplicationProcessing:output_type -> email.SendResponse
-	18, // 24: email.Email.SendApplicationRejected:output_type -> email.SendResponse
-	18, // 25: email.Email.SendAtcRatingChange:output_type -> email.SendResponse
-	18, // 26: email.Email.SendBanned:output_type -> email.SendResponse
-	18, // 27: email.Email.SendInstructorChange:output_type -> email.SendResponse
-	18, // 28: email.Email.SendKickedFromServer:output_type -> email.SendResponse
-	18, // 29: email.Email.SendPasswordChange:output_type -> email.SendResponse
-	18, // 30: email.Email.SendPasswordReset:output_type -> email.SendResponse
-	18, // 31: email.Email.SendPermissionChange:output_type -> email.SendResponse
-	18, // 32: email.Email.SendRoleChange:output_type -> email.SendResponse
-	18, // 33: email.Email.SendTicketReply:output_type -> email.SendResponse
-	18, // 34: email.Email.SendWelcome:output_type -> email.SendResponse
+	18, // 17: email.Email.VerifyEmailCode:input_type -> email.VerifyCode
+	17, // 18: email.Email.SendActivityAtcJoin:output_type -> email.SendResponse
+	17, // 19: email.Email.SendActivityAtcLeave:output_type -> email.SendResponse
+	17, // 20: email.Email.SendActivityPilotJoin:output_type -> email.SendResponse
+	17, // 21: email.Email.SendActivityPilotLeave:output_type -> email.SendResponse
+	17, // 22: email.Email.SendApplicationPassed:output_type -> email.SendResponse
+	17, // 23: email.Email.SendApplicationProcessing:output_type -> email.SendResponse
+	17, // 24: email.Email.SendApplicationRejected:output_type -> email.SendResponse
+	17, // 25: email.Email.SendAtcRatingChange:output_type -> email.SendResponse
+	17, // 26: email.Email.SendBanned:output_type -> email.SendResponse
+	17, // 27: email.Email.SendInstructorChange:output_type -> email.SendResponse
+	17, // 28: email.Email.SendKickedFromServer:output_type -> email.SendResponse
+	17, // 29: email.Email.SendPasswordChange:output_type -> email.SendResponse
+	17, // 30: email.Email.SendPasswordReset:output_type -> email.SendResponse
+	17, // 31: email.Email.SendPermissionChange:output_type -> email.SendResponse
+	17, // 32: email.Email.SendRoleChange:output_type -> email.SendResponse
+	17, // 33: email.Email.SendTicketReply:output_type -> email.SendResponse
+	17, // 34: email.Email.SendWelcome:output_type -> email.SendResponse
 	19, // 35: email.Email.VerifyEmailCode:output_type -> email.VerifyResponse
 	18, // [18:36] is the sub-list for method output_type
 	0,  // [0:18] is the sub-list for method input_type
