@@ -6,9 +6,11 @@ package main
 
 import (
 	"context"
+	"email-service/src/email"
 	grpcImpl "email-service/src/grpc"
 	c "email-service/src/interfaces/config"
 	"email-service/src/interfaces/content"
+	e "email-service/src/interfaces/email"
 	g "email-service/src/interfaces/global"
 	pb "email-service/src/interfaces/grpc"
 	"email-service/src/server"
@@ -16,6 +18,7 @@ import (
 	"time"
 
 	"google.golang.org/grpc"
+	"half-nothing.cn/service-core/cache"
 	"half-nothing.cn/service-core/cleaner"
 	"half-nothing.cn/service-core/config"
 	"half-nothing.cn/service-core/discovery"
@@ -48,8 +51,8 @@ func main() {
 	lg.Info("|   __|_____ ___|_| |   __|___ ___ _ _|_|___ ___")
 	lg.Info("|   __|     | .'| | |__   | -_|  _| | | |  _| -_|")
 	lg.Info("|_____|_|_|_|__,|_|_|_____|___|_|  \\_/|_|___|___|")
-	lg.Infof("               Copyright © %d-%d Half_nothing", global.BeginYear, time.Now().Year())
-	lg.Infof("                              EmailService v%s", g.AppVersion)
+	lg.Info(fmt.Sprintf("%49s", fmt.Sprintf("Copyright © %d-%d Half_nothing", global.BeginYear, time.Now().Year())))
+	lg.Info(fmt.Sprintf("%49s", fmt.Sprintf("EmailService v%s", g.AppVersion)))
 
 	cl := cleaner.NewCleaner(lg)
 	cl.Init()
@@ -68,10 +71,16 @@ func main() {
 		cl.Add("Telemetry", shutdown)
 	}
 
+	codeCache := cache.NewMemoryCache[string, *e.CodeData](applicationConfig.EmailConfig.VerifyExpireDuration)
+	sendCache := cache.NewMemoryCache[string, time.Time](applicationConfig.EmailConfig.VerifyIntervalDuration)
+	cl.Add("Cache", func(_ context.Context) error { codeCache.Close(); sendCache.Close(); return nil })
+
 	applicationContent := content.NewApplicationContentBuilder().
 		SetConfigManager(configManager).
 		SetCleaner(cl).
 		SetLogger(lg).
+		SetEmailSender(email.NewSender(lg, applicationConfig.EmailConfig)).
+		SetCodeManager(email.NewCodeManager(lg, applicationConfig.EmailConfig, codeCache, sendCache)).
 		Build()
 
 	go server.StartHttpServer(applicationContent)
@@ -79,7 +88,7 @@ func main() {
 	if applicationConfig.ServerConfig.GrpcServerConfig.Enable {
 		started := make(chan bool)
 		go grpcUtils.StartGrpcServer(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, func(s *grpc.Server) {
-			grpcServer := grpcImpl.NewEmailServer(lg)
+			grpcServer := grpcImpl.NewEmailServer(applicationContent)
 			pb.RegisterEmailServer(s, grpcServer)
 		})
 		go discovery.StartServiceDiscovery(lg, cl, started, utils.NewVersion(g.AppVersion),

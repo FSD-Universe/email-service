@@ -5,6 +5,8 @@
 package grpc
 
 import (
+	"email-service/src/interfaces/content"
+	"email-service/src/interfaces/email"
 	pb "email-service/src/interfaces/grpc"
 
 	"half-nothing.cn/service-core/interfaces/logger"
@@ -12,11 +14,15 @@ import (
 
 type EmailServer struct {
 	pb.UnimplementedEmailServer
-	logger logger.Interface
+	logger  logger.Interface
+	sender  email.SenderInterface
+	manager email.CodeManagerInterface
 }
 
-func NewEmailServer(lg logger.Interface) *EmailServer {
+func NewEmailServer(content *content.ApplicationContent) *EmailServer {
 	return &EmailServer{
-		logger: logger.NewLoggerAdapter(lg, "grpc-server"),
+		logger:  logger.NewLoggerAdapter(content.Logger(), "grpc-server"),
+		sender:  content.EmailSender(),
+		manager: content.CodeManager(),
 	}
 }
