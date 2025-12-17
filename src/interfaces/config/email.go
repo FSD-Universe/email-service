@@ -219,43 +219,22 @@ type EmailData struct {
 type Email *utils.Enum[string, *EmailData]
 
 var (
-	EmailVerifyCode            = utils.NewEnum("verify_code", &EmailData{Enable: true, RemotePath: "/docker/data/template/verify_code.template"})
-	EmailWelcome               = utils.NewEnum("welcome", &EmailData{Enable: true, RemotePath: "/docker/data/template/welcome.template"})
-	EmailRatingChange          = utils.NewEnum("rating_change", &EmailData{Enable: true, RemotePath: "/docker/data/template/atc_rating_change.template"})
-	EmailKickedFromServer      = utils.NewEnum("kicked_from_server", &EmailData{Enable: true, RemotePath: "/docker/data/template/kicked_from_server.template"})
-	EmailPasswordChange        = utils.NewEnum("password_change", &EmailData{Enable: true, RemotePath: "/docker/data/template/password_change.template"})
-	EmailPasswordReset         = utils.NewEnum("password_reset", &EmailData{Enable: true, RemotePath: "/docker/data/template/password_reset.template"})
-	EmailApplicationPassed     = utils.NewEnum("application_passed", &EmailData{Enable: true, RemotePath: "/docker/data/template/application_passed.template"})
-	EmailApplicationRejected   = utils.NewEnum("application_rejected", &EmailData{Enable: true, RemotePath: "/docker/data/template/application_rejected.template"})
-	EmailApplicationProcessing = utils.NewEnum("application_processing", &EmailData{Enable: true, RemotePath: "/docker/data/template/application_processing.template"})
-	EmailTicketReply           = utils.NewEnum("ticket_reply", &EmailData{Enable: true, RemotePath: "/docker/data/template/ticket_reply.template"})
-	EmailActivityPilotJoin     = utils.NewEnum("activity_pilot_join", &EmailData{Enable: true, RemotePath: "/docker/data/template/activity_pilot_join.template"})
-	EmailActivityPilotLeave    = utils.NewEnum("activity_pilot_leave", &EmailData{Enable: true, RemotePath: "/docker/data/template/activity_pilot_leave.template"})
-	EmailActivityAtcJoin       = utils.NewEnum("activity_atc_join", &EmailData{Enable: true, RemotePath: "/docker/data/template/activity_atc_join.template"})
-	EmailActivityAtcLeave      = utils.NewEnum("activity_atc_leave", &EmailData{Enable: true, RemotePath: "/docker/data/template/activity_atc_leave.template"})
-	EmailInstructorChange      = utils.NewEnum("instructor_change", &EmailData{Enable: true, RemotePath: "/docker/data/template/instructor_change.template"})
-	EmailBanned                = utils.NewEnum("banned", &EmailData{Enable: true, RemotePath: "/docker/data/template/banned.template"})
-	EmailRoleChange            = utils.NewEnum("role_change", &EmailData{Enable: true, RemotePath: "/docker/data/template/role_change.template"})
-	EmailPermissionChange      = utils.NewEnum("permission_change", &EmailData{Enable: true, RemotePath: "/docker/data/template/permission_change.template"})
-)
-
-var Emails = utils.NewEnums(
-	EmailVerifyCode,
-	EmailWelcome,
-	EmailRatingChange,
-	EmailKickedFromServer,
-	EmailPasswordChange,
-	EmailPasswordReset,
-	EmailApplicationPassed,
-	EmailApplicationRejected,
-	EmailApplicationProcessing,
-	EmailTicketReply,
-	EmailActivityPilotJoin,
-	EmailActivityPilotLeave,
-	EmailActivityAtcJoin,
-	EmailActivityAtcLeave,
-	EmailInstructorChange,
-	EmailBanned,
-	EmailRoleChange,
-	EmailPermissionChange,
+	EmailVerifyCode            = utils.NewEnum("verify_code", &EmailData{Enable: true, RemotePath: "/docker/data/templates/verify_code.template"})
+	EmailWelcome               = utils.NewEnum("welcome", &EmailData{Enable: true, RemotePath: "/docker/data/templates/welcome.template"})
+	EmailRatingChange          = utils.NewEnum("rating_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/atc_rating_change.template"})
+	EmailKickedFromServer      = utils.NewEnum("kicked_from_server", &EmailData{Enable: true, RemotePath: "/docker/data/templates/kicked_from_server.template"})
+	EmailPasswordChange        = utils.NewEnum("password_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/password_change.template"})
+	EmailPasswordReset         = utils.NewEnum("password_reset", &EmailData{Enable: true, RemotePath: "/docker/data/templates/password_reset.template"})
+	EmailApplicationPassed     = utils.NewEnum("application_passed", &EmailData{Enable: true, RemotePath: "/docker/data/templates/application_passed.template"})
+	EmailApplicationRejected   = utils.NewEnum("application_rejected", &EmailData{Enable: true, RemotePath: "/docker/data/templates/application_rejected.template"})
+	EmailApplicationProcessing = utils.NewEnum("application_processing", &EmailData{Enable: true, RemotePath: "/docker/data/templates/application_processing.template"})
+	EmailTicketReply           = utils.NewEnum("ticket_reply", &EmailData{Enable: true, RemotePath: "/docker/data/templates/ticket_reply.template"})
+	EmailActivityPilotJoin     = utils.NewEnum("activity_pilot_join", &EmailData{Enable: true, RemotePath: "/docker/data/templates/activity_pilot_join.template"})
+	EmailActivityPilotLeave    = utils.NewEnum("activity_pilot_leave", &EmailData{Enable: true, RemotePath: "/docker/data/templates/activity_pilot_leave.template"})
+	EmailActivityAtcJoin       = utils.NewEnum("activity_atc_join", &EmailData{Enable: true, RemotePath: "/docker/data/templates/activity_atc_join.template"})
+	EmailActivityAtcLeave      = utils.NewEnum("activity_atc_leave", &EmailData{Enable: true, RemotePath: "/docker/data/templates/activity_atc_leave.template"})
+	EmailInstructorChange      = utils.NewEnum("instructor_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/instructor_change.template"})
+	EmailBanned                = utils.NewEnum("banned", &EmailData{Enable: true, RemotePath: "/docker/data/templates/banned.template"})
+	EmailRoleChange            = utils.NewEnum("role_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/role_change.template"})
+	EmailPermissionChange      = utils.NewEnum("permission_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/permission_change.template"})
 )
