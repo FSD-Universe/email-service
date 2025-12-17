@@ -3,6 +3,129 @@
 [![ReleaseCard]][Release]![ReleaseDataCard]![LastCommitCard]  
 ![BuildStateCard]![DockerStateCard]![ProjectLicense]
 
+本项目提供邮件发送服务，与邮件验证服务
+
+Http接口请看[API文档](https://api.half-nothing.cn)
+
+gRPC接口请看[proto文件](./src/interfaces/grpc/email.proto)
+
+## 如何使用
+
+### ***(推荐)*** 使用Docker部署
+
+1. ***(推荐)*** 使用docker-compose部署  
+   i. 克隆或下载本项目到本地，并进入`docker`目录  
+   ii. 按需编辑配置文件或`docker-compose.yml`文件  
+   iii. 运行`docker-compose up -d`命令  
+   iv. 访问[http://127.0.0.1:8080](http://127.0.0.1:8080)查看是否部署成功  
+   v. 如果需要添加命令行参数
+   ```yml
+   services:
+     fsd:
+       image: halfnothing/email-service:latest
+       # 省略部分字段
+       command:
+         - "-download_prefix https://gh-proxy.com/https://raw.githubusercontent.com/FSD-Universe/email-service/refs/heads/main"
+   ```
+   推荐使用环境变量代替命令行参数
+   ```yml
+   services:
+     fsd:
+       image: halfnothing/email-service:latest
+       # 省略部分字段
+       environment:
+         DOWNLOAD_PREFIX: https://gh-proxy.com/https://raw.githubusercontent.com/FSD-Universe/email-service/refs/heads/main
+   ```
+
+2. 使用docker命令部署  
+   命令示例如下
+   ```shell
+   docker run -d --name email-service -p 8080:8080 -v $(pwd)/config.yaml:/service/config.yaml -v $(pwd)/data:/service/data halfnothing/email-service:latest
+   ``` 
+   如果需要添加命令行参数, 则在命令的最后添加
+   ```shell
+   docker run -d ... halfnothing/email-service:latest -download_prefix https://gh-proxy.com/https://raw.githubusercontent.com/FSD-Universe/email-service/refs/heads/main
+   ```
+
+3. 通过Dockerfile构建  
+   i. 手动构建
+   ```shell
+   # 克隆本仓库
+   git clone https://github.com/FSD-Universe/email-service.git
+   # 进入项目目录
+   cd email-service
+   # 运行docker构建
+   docker build -t email-service:latest .
+   # 运行docker容器
+   docker run -d --name email-service -p 8080:8080 -v $(pwd)/config.yaml:/service/config.yaml -v $(pwd)/data:/service/data email-service:latest 
+   ```
+   ii. 自动构建
+   ```shell
+   # 克隆本仓库
+   git clone https://github.com/FSD-Universe/email-service.git
+   # 进入项目目录
+   cd email-service
+   # 进入docker目录并且修改docker-compose.yml文件
+   cd docker
+   vi docker-compose.yml
+   ```
+   将`image: halfnothing/email-service:latest`这一行替换为`build: ".."`    
+   然后在同目录运行
+   ```shell
+   docker compose up -d
+   ```
+
+### 普通部署
+
+1. 获取项目可执行文件
+    - 前往[Release]页面下载最新版本
+    - 前往[Action]页面下载最新开发版本
+    - 手动[编译](#手动构建)本项目
+2. [可选]下载[`config.yaml`](./docker/config.yaml)配置文件放置于可执行文件同级目录中
+3. 运行可执行文件，如果配置文件存在，则使用配置文件，否则创建默认配置文件
+
+## 手动构建
+
+```shell
+# 克隆本仓库
+git clone https://github.com/FSD-Universe/email-service.git
+# 进入项目目录
+cd email-service
+# 确认安装了go编译器并且版本>=1.25
+go version
+# 运行go build命令
+go build -ldflags="-w -s" -tags "http grpc telemetry" .
+# 对于windows系统, 可执行文件为email-service.exe
+# 对于linux系统, 可执行文件为email-service
+# [可选]使用upx压缩可执行文件
+# windows
+upx.exe -9 email-service.exe
+# linux
+upx -9 email-service
+```
+
+## 命令行参数与环境变量一览
+
+| 命令行参数              | 环境变量               | 描述                 | 默认值                                                                          |
+|:-------------------|:-------------------|:-------------------|:-----------------------------------------------------------------------------|
+| no_logs            | NO_LOGS            | 禁用日志输出到文件          | false                                                                        |
+| auto_migrate       | AUTO_MIGRATE       | 自动迁移数据库(不要在生产环境使用) | false                                                                        |
+| config             | CONFIG_FILE_PATH   | 配置文件路径             | "config.yaml"                                                                |
+| broadcast_port     | BROADCAST_PORT     | 服务发现广播端口           | 9999                                                                         |
+| heartbeat_interval | HEARTBEAT_INTERVAL | 心跳间隔               | "30s"                                                                        |
+| service_timeout    | SERVICE_TIMEOUT    | 服务超时时间             | "90s"                                                                        |
+| cleanup_interval   | CLEANUP_INTERVAL   | 清理间隔               | "30s"                                                                        |
+| eth_name           | ETH_NAME           | 以太网接口名称            | "Ethernet"(windows) / "eth0"(linux/macos)                                    |
+| download_prefix    | DOWNLOAD_PREFIX    | 下载前缀               | https://raw.githubusercontent.com/FSD-Universe/email-service/refs/heads/main |
+
+## 贡献指南
+
+1. 开一个 Issue 与我们讨论
+2. Fork 本项目并完成你的修改
+3. 不要修改任何除了你创建以外的源代码的版权信息
+4. 遵守良好的代码编码规范
+5. 开一个 Pull Request
+
 ## 开源协议
 
 MIT License
