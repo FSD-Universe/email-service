@@ -7,6 +7,155 @@ option go_package = "src/interfaces/grpc";
 
 package email;
 
-service Email {
+message ActivityAtcJoin {
+  string cid = 1;
+  string activityName = 2;
+  string activityTime = 3;
+  string facility = 4;
+  string frequency = 5;
+}
 
+message ActivityAtcLeave {
+  string cid = 1;
+  string activityName = 2;
+}
+
+message ActivityPilotJoin {
+  string cid = 1;
+  string activityName = 2;
+  string activityTime = 3;
+  string callsign = 4;
+  string aircraft = 5;
+}
+
+message ActivityPilotLeave {
+  string cid = 1;
+  string activityName = 2;
+}
+
+message ApplicationPassed {
+  string cid = 1;
+  string operator = 2;
+  string message = 3;
+  string contact = 4;
+}
+
+message ApplicationProcessing {
+  string cid = 1;
+  string time = 2;
+  string contact = 3;
+}
+
+message ApplicationRejected {
+  string cid = 1;
+  string operator = 2;
+  string reason = 3;
+  string contact = 4;
+}
+
+message AtcRatingChange {
+  string cid = 1;
+  string newValue = 2;
+  string oldValue = 3;
+  string operator = 4;
+  string contact = 5;
+}
+
+message Banned {
+  string cid = 1;
+  string reason = 2;
+  string time = 3;
+  string operator = 4;
+  string contact = 5;
+}
+
+message InstructorChange {
+  string cid = 1;
+  string reason = 2;
+  string instructor = 3;
+  string operator = 4;
+  string contact = 5;
+}
+
+message KickedFromServer {
+  string cid = 1;
+  string reason = 2;
+  string time = 3;
+  string operator = 4;
+  string contact = 5;
+}
+
+message PasswordChange {
+  string cid = 1;
+  string time = 2;
+  string ip = 3;
+  string userAgent = 4;
+}
+
+message PasswordReset {
+  string cid = 1;
+  string time = 2;
+  string ip = 3;
+  string userAgent = 4;
+}
+
+message PermissionChange {
+  string cid = 1;
+  string permissions = 2;
+  string operator = 3;
+  string contact = 4;
+}
+
+message RoleChange {
+  string cid = 1;
+  string roles = 2;
+  string operator = 3;
+  string contact = 4;
+}
+
+message TicketReply {
+  string cid = 1;
+  string title = 2;
+  string reply = 3;
+}
+
+message Welcome {
+  string cid = 1;
+}
+
+message VerifyCode {
+  string cid = 1;
+  string code = 2;
+  string email = 3;
+}
+
+message SendResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message VerifyResponse {
+  bool success = 1;
+  int32 code = 2;
+}
+
+service Email {
+  rpc SendActivityAtcJoin(ActivityAtcJoin) returns (SendResponse);
+  rpc SendActivityAtcLeave(ActivityAtcLeave) returns (SendResponse);
+  rpc SendActivityPilotJoin(ActivityPilotJoin) returns (SendResponse);
+  rpc SendActivityPilotLeave(ActivityPilotLeave) returns (SendResponse);
+  rpc SendApplicationPassed(ApplicationPassed) returns (SendResponse);
+  rpc SendApplicationProcessing(ApplicationProcessing) returns (SendResponse);
+  rpc SendApplicationRejected(ApplicationRejected) returns (SendResponse);
+  rpc SendAtcRatingChange(AtcRatingChange) returns (SendResponse);
+  rpc SendBanned(Banned) returns (SendResponse);
+  rpc SendInstructorChange(InstructorChange) returns (SendResponse);
+  rpc SendKickedFromServer(KickedFromServer) returns (SendResponse);
+  rpc SendPasswordChange(PasswordChange) returns (SendResponse);
+  rpc SendPasswordReset(PasswordReset) returns (SendResponse);
+  rpc SendPermissionChange(PermissionChange) returns (SendResponse);
+  rpc SendRoleChange(RoleChange) returns (SendResponse);
+  rpc SendTicketReply(TicketReply) returns (SendResponse);
+  rpc SendWelcome(Welcome) returns (SendResponse);
+  rpc VerifyEmailCode(VerifyCode) returns (VerifyResponse);
 }
