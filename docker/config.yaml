@@ -125,7 +125,7 @@ server:
     port: 8080
     # 请求体大小限制
     # 置空表示不限制
-    body_limit: 5MB
+    body_limit: 5M
     # 请求频率限制(次/分钟)
     # 0表示不限制
     rate_limit: 20
@@ -143,15 +143,15 @@ server:
       # 本地连接地址
       # - "169.254.0.0/16"
       - "0.0.0.0/0"
-    # SSL配置
-    ssl:
-      # 是否启用SSL
+    # TLS配置
+    tls:
+      # 是否启用TLS
       enable: false
-      # SSL证书文件
+      # TLS证书文件
       cert: ""
-      # SSL密钥文件
+      # TLS密钥文件
       key: ""
-      # 是否强制使用SSL
+      # 是否强制使用TLS
       force_https: false
       # HSTS配置
       hsts:
@@ -169,21 +169,33 @@ server:
     host: 0.0.0.0
     # 监听端口
     port: 8081
+    # TLS配置
+    tls:
+      # 是否启用TLS
+      enable: false
+      # 是否启用双向TLS
+      enable_mtls: false
+      # TLS证书文件
+      cert: ""
+      # TLS密钥文件
+      key: ""
+      # 双向TLS CA文件
+      ca: ""
 
 # 监控配置
 telemetry:
   # 是否启用
   enable: false
   # 服务名称
-  name:
+  name: email-service
   # 接入点
-  endpoint:
+  endpoint: http://localhost:4318
   # 认证秘钥
-  token:
+  token: ""
   # 服务名
-  service_name:
+  service_name: email-service
   # 节点名
-  host_name:
+  host_name: localhost
   # 启用数据库追踪
   database_trace: false
   # 启用grpc服务器追踪
