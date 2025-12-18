@@ -5,12 +5,10 @@
 package server
 
 import (
-	"context"
 	"email-service/src/interfaces/content"
 	"email-service/src/server/controller"
 	"email-service/src/server/service"
 	"io"
-	"time"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
@@ -27,7 +25,7 @@ func StartHttpServer(content *content.ApplicationContent) {
 	e.Logger.SetOutput(io.Discard)
 	e.Logger.SetLevel(log.OFF)
 
-	http.SetEchoConfig(lg, e, c.ServerConfig.HttpServerConfig, 30*time.Second)
+	http.SetEchoConfig(lg, e, c.ServerConfig.HttpServerConfig, nil)
 
 	if c.TelemetryConfig.HttpServerTrace {
 		http.SetTelemetry(e, c.TelemetryConfig)
@@ -46,9 +44,8 @@ func StartHttpServer(content *content.ApplicationContent) {
 	emailGroup := apiGroup.Group("/emails")
 	emailGroup.POST("/code", emailController.SendEmailCode)
 
-	content.Cleaner().Add("http-server", func(ctx context.Context) error {
-		return e.Shutdown(ctx)
-	})
+	http.SetUnmatchedRoute(e)
+	http.SetCleaner(content.Cleaner(), e)
 
 	http.Serve(lg, e, c.ServerConfig.HttpServerConfig)
 }
