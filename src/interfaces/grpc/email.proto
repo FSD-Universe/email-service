@@ -5,7 +5,7 @@ syntax = "proto3";
 
 option go_package = "src/interfaces/grpc";
 
-package email;
+package fsd_universe;
 
 message ActivityAtcJoin {
   string targetEmail = 1;

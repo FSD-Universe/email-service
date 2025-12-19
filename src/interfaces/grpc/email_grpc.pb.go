@@ -22,24 +22,24 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Email_SendActivityAtcJoin_FullMethodName       = "/email.Email/SendActivityAtcJoin"
-	Email_SendActivityAtcLeave_FullMethodName      = "/email.Email/SendActivityAtcLeave"
-	Email_SendActivityPilotJoin_FullMethodName     = "/email.Email/SendActivityPilotJoin"
-	Email_SendActivityPilotLeave_FullMethodName    = "/email.Email/SendActivityPilotLeave"
-	Email_SendApplicationPassed_FullMethodName     = "/email.Email/SendApplicationPassed"
-	Email_SendApplicationProcessing_FullMethodName = "/email.Email/SendApplicationProcessing"
-	Email_SendApplicationRejected_FullMethodName   = "/email.Email/SendApplicationRejected"
-	Email_SendAtcRatingChange_FullMethodName       = "/email.Email/SendAtcRatingChange"
-	Email_SendBanned_FullMethodName                = "/email.Email/SendBanned"
-	Email_SendInstructorChange_FullMethodName      = "/email.Email/SendInstructorChange"
-	Email_SendKickedFromServer_FullMethodName      = "/email.Email/SendKickedFromServer"
-	Email_SendPasswordChange_FullMethodName        = "/email.Email/SendPasswordChange"
-	Email_SendPasswordReset_FullMethodName         = "/email.Email/SendPasswordReset"
-	Email_SendPermissionChange_FullMethodName      = "/email.Email/SendPermissionChange"
-	Email_SendRoleChange_FullMethodName            = "/email.Email/SendRoleChange"
-	Email_SendTicketReply_FullMethodName           = "/email.Email/SendTicketReply"
-	Email_SendWelcome_FullMethodName               = "/email.Email/SendWelcome"
-	Email_VerifyEmailCode_FullMethodName           = "/email.Email/VerifyEmailCode"
+	Email_SendActivityAtcJoin_FullMethodName       = "/fsd_universe.Email/SendActivityAtcJoin"
+	Email_SendActivityAtcLeave_FullMethodName      = "/fsd_universe.Email/SendActivityAtcLeave"
+	Email_SendActivityPilotJoin_FullMethodName     = "/fsd_universe.Email/SendActivityPilotJoin"
+	Email_SendActivityPilotLeave_FullMethodName    = "/fsd_universe.Email/SendActivityPilotLeave"
+	Email_SendApplicationPassed_FullMethodName     = "/fsd_universe.Email/SendApplicationPassed"
+	Email_SendApplicationProcessing_FullMethodName = "/fsd_universe.Email/SendApplicationProcessing"
+	Email_SendApplicationRejected_FullMethodName   = "/fsd_universe.Email/SendApplicationRejected"
+	Email_SendAtcRatingChange_FullMethodName       = "/fsd_universe.Email/SendAtcRatingChange"
+	Email_SendBanned_FullMethodName                = "/fsd_universe.Email/SendBanned"
+	Email_SendInstructorChange_FullMethodName      = "/fsd_universe.Email/SendInstructorChange"
+	Email_SendKickedFromServer_FullMethodName      = "/fsd_universe.Email/SendKickedFromServer"
+	Email_SendPasswordChange_FullMethodName        = "/fsd_universe.Email/SendPasswordChange"
+	Email_SendPasswordReset_FullMethodName         = "/fsd_universe.Email/SendPasswordReset"
+	Email_SendPermissionChange_FullMethodName      = "/fsd_universe.Email/SendPermissionChange"
+	Email_SendRoleChange_FullMethodName            = "/fsd_universe.Email/SendRoleChange"
+	Email_SendTicketReply_FullMethodName           = "/fsd_universe.Email/SendTicketReply"
+	Email_SendWelcome_FullMethodName               = "/fsd_universe.Email/SendWelcome"
+	Email_VerifyEmailCode_FullMethodName           = "/fsd_universe.Email/VerifyEmailCode"
 )
 
 // EmailClient is the client API for Email service.
@@ -689,7 +689,7 @@ func _Email_VerifyEmailCode_Handler(srv interface{}, ctx context.Context, dec fu
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Email_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "email.Email",
+	ServiceName: "fsd_universe.Email",
 	HandlerType: (*EmailServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

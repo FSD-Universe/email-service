@@ -1452,7 +1452,7 @@ var File_email_proto protoreflect.FileDescriptor
 
 const file_email_proto_rawDesc = "" +
 	"\n" +
-	"\vemail.proto\x12\x05email\"\xc7\x01\n" +
+	"\vemail.proto\x12\ffsd_universe\"\xc7\x01\n" +
 	"\x0fActivityAtcJoin\x12 \n" +
 	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
 	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\"\n" +
@@ -1564,27 +1564,27 @@ const file_email_proto_rawDesc = "" +
 	"\x05email\x18\x03 \x01(\tR\x05email\">\n" +
 	"\x0eVerifyResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x12\n" +
-	"\x04code\x18\x02 \x01(\x05R\x04code2\xb8\t\n" +
-	"\x05Email\x12B\n" +
-	"\x13SendActivityAtcJoin\x12\x16.email.ActivityAtcJoin\x1a\x13.email.SendResponse\x12D\n" +
-	"\x14SendActivityAtcLeave\x12\x17.email.ActivityAtcLeave\x1a\x13.email.SendResponse\x12F\n" +
-	"\x15SendActivityPilotJoin\x12\x18.email.ActivityPilotJoin\x1a\x13.email.SendResponse\x12H\n" +
-	"\x16SendActivityPilotLeave\x12\x19.email.ActivityPilotLeave\x1a\x13.email.SendResponse\x12F\n" +
-	"\x15SendApplicationPassed\x12\x18.email.ApplicationPassed\x1a\x13.email.SendResponse\x12N\n" +
-	"\x19SendApplicationProcessing\x12\x1c.email.ApplicationProcessing\x1a\x13.email.SendResponse\x12J\n" +
-	"\x17SendApplicationRejected\x12\x1a.email.ApplicationRejected\x1a\x13.email.SendResponse\x12B\n" +
-	"\x13SendAtcRatingChange\x12\x16.email.AtcRatingChange\x1a\x13.email.SendResponse\x120\n" +
+	"\x04code\x18\x02 \x01(\x05R\x04code2\xb4\v\n" +
+	"\x05Email\x12P\n" +
+	"\x13SendActivityAtcJoin\x12\x1d.fsd_universe.ActivityAtcJoin\x1a\x1a.fsd_universe.SendResponse\x12R\n" +
+	"\x14SendActivityAtcLeave\x12\x1e.fsd_universe.ActivityAtcLeave\x1a\x1a.fsd_universe.SendResponse\x12T\n" +
+	"\x15SendActivityPilotJoin\x12\x1f.fsd_universe.ActivityPilotJoin\x1a\x1a.fsd_universe.SendResponse\x12V\n" +
+	"\x16SendActivityPilotLeave\x12 .fsd_universe.ActivityPilotLeave\x1a\x1a.fsd_universe.SendResponse\x12T\n" +
+	"\x15SendApplicationPassed\x12\x1f.fsd_universe.ApplicationPassed\x1a\x1a.fsd_universe.SendResponse\x12\\\n" +
+	"\x19SendApplicationProcessing\x12#.fsd_universe.ApplicationProcessing\x1a\x1a.fsd_universe.SendResponse\x12X\n" +
+	"\x17SendApplicationRejected\x12!.fsd_universe.ApplicationRejected\x1a\x1a.fsd_universe.SendResponse\x12P\n" +
+	"\x13SendAtcRatingChange\x12\x1d.fsd_universe.AtcRatingChange\x1a\x1a.fsd_universe.SendResponse\x12>\n" +
 	"\n" +
-	"SendBanned\x12\r.email.Banned\x1a\x13.email.SendResponse\x12D\n" +
-	"\x14SendInstructorChange\x12\x17.email.InstructorChange\x1a\x13.email.SendResponse\x12D\n" +
-	"\x14SendKickedFromServer\x12\x17.email.KickedFromServer\x1a\x13.email.SendResponse\x12@\n" +
-	"\x12SendPasswordChange\x12\x15.email.PasswordChange\x1a\x13.email.SendResponse\x12>\n" +
-	"\x11SendPasswordReset\x12\x14.email.PasswordReset\x1a\x13.email.SendResponse\x12D\n" +
-	"\x14SendPermissionChange\x12\x17.email.PermissionChange\x1a\x13.email.SendResponse\x128\n" +
-	"\x0eSendRoleChange\x12\x11.email.RoleChange\x1a\x13.email.SendResponse\x12:\n" +
-	"\x0fSendTicketReply\x12\x12.email.TicketReply\x1a\x13.email.SendResponse\x122\n" +
-	"\vSendWelcome\x12\x0e.email.Welcome\x1a\x13.email.SendResponse\x12;\n" +
-	"\x0fVerifyEmailCode\x12\x11.email.VerifyCode\x1a\x15.email.VerifyResponseB\x15Z\x13src/interfaces/grpcb\x06proto3"
+	"SendBanned\x12\x14.fsd_universe.Banned\x1a\x1a.fsd_universe.SendResponse\x12R\n" +
+	"\x14SendInstructorChange\x12\x1e.fsd_universe.InstructorChange\x1a\x1a.fsd_universe.SendResponse\x12R\n" +
+	"\x14SendKickedFromServer\x12\x1e.fsd_universe.KickedFromServer\x1a\x1a.fsd_universe.SendResponse\x12N\n" +
+	"\x12SendPasswordChange\x12\x1c.fsd_universe.PasswordChange\x1a\x1a.fsd_universe.SendResponse\x12L\n" +
+	"\x11SendPasswordReset\x12\x1b.fsd_universe.PasswordReset\x1a\x1a.fsd_universe.SendResponse\x12R\n" +
+	"\x14SendPermissionChange\x12\x1e.fsd_universe.PermissionChange\x1a\x1a.fsd_universe.SendResponse\x12F\n" +
+	"\x0eSendRoleChange\x12\x18.fsd_universe.RoleChange\x1a\x1a.fsd_universe.SendResponse\x12H\n" +
+	"\x0fSendTicketReply\x12\x19.fsd_universe.TicketReply\x1a\x1a.fsd_universe.SendResponse\x12@\n" +
+	"\vSendWelcome\x12\x15.fsd_universe.Welcome\x1a\x1a.fsd_universe.SendResponse\x12I\n" +
+	"\x0fVerifyEmailCode\x12\x18.fsd_universe.VerifyCode\x1a\x1c.fsd_universe.VerifyResponseB\x15Z\x13src/interfaces/grpcb\x06proto3"
 
 var (
 	file_email_proto_rawDescOnce sync.Once
@@ -1600,64 +1600,64 @@ func file_email_proto_rawDescGZIP() []byte {
 
 var file_email_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_email_proto_goTypes = []any{
-	(*ActivityAtcJoin)(nil),       // 0: email.ActivityAtcJoin
-	(*ActivityAtcLeave)(nil),      // 1: email.ActivityAtcLeave
-	(*ActivityPilotJoin)(nil),     // 2: email.ActivityPilotJoin
-	(*ActivityPilotLeave)(nil),    // 3: email.ActivityPilotLeave
-	(*ApplicationPassed)(nil),     // 4: email.ApplicationPassed
-	(*ApplicationProcessing)(nil), // 5: email.ApplicationProcessing
-	(*ApplicationRejected)(nil),   // 6: email.ApplicationRejected
-	(*AtcRatingChange)(nil),       // 7: email.AtcRatingChange
-	(*Banned)(nil),                // 8: email.Banned
-	(*InstructorChange)(nil),      // 9: email.InstructorChange
-	(*KickedFromServer)(nil),      // 10: email.KickedFromServer
-	(*PasswordChange)(nil),        // 11: email.PasswordChange
-	(*PasswordReset)(nil),         // 12: email.PasswordReset
-	(*PermissionChange)(nil),      // 13: email.PermissionChange
-	(*RoleChange)(nil),            // 14: email.RoleChange
-	(*TicketReply)(nil),           // 15: email.TicketReply
-	(*Welcome)(nil),               // 16: email.Welcome
-	(*SendResponse)(nil),          // 17: email.SendResponse
-	(*VerifyCode)(nil),            // 18: email.VerifyCode
-	(*VerifyResponse)(nil),        // 19: email.VerifyResponse
+	(*ActivityAtcJoin)(nil),       // 0: fsd_universe.ActivityAtcJoin
+	(*ActivityAtcLeave)(nil),      // 1: fsd_universe.ActivityAtcLeave
+	(*ActivityPilotJoin)(nil),     // 2: fsd_universe.ActivityPilotJoin
+	(*ActivityPilotLeave)(nil),    // 3: fsd_universe.ActivityPilotLeave
+	(*ApplicationPassed)(nil),     // 4: fsd_universe.ApplicationPassed
+	(*ApplicationProcessing)(nil), // 5: fsd_universe.ApplicationProcessing
+	(*ApplicationRejected)(nil),   // 6: fsd_universe.ApplicationRejected
+	(*AtcRatingChange)(nil),       // 7: fsd_universe.AtcRatingChange
+	(*Banned)(nil),                // 8: fsd_universe.Banned
+	(*InstructorChange)(nil),      // 9: fsd_universe.InstructorChange
+	(*KickedFromServer)(nil),      // 10: fsd_universe.KickedFromServer
+	(*PasswordChange)(nil),        // 11: fsd_universe.PasswordChange
+	(*PasswordReset)(nil),         // 12: fsd_universe.PasswordReset
+	(*PermissionChange)(nil),      // 13: fsd_universe.PermissionChange
+	(*RoleChange)(nil),            // 14: fsd_universe.RoleChange
+	(*TicketReply)(nil),           // 15: fsd_universe.TicketReply
+	(*Welcome)(nil),               // 16: fsd_universe.Welcome
+	(*SendResponse)(nil),          // 17: fsd_universe.SendResponse
+	(*VerifyCode)(nil),            // 18: fsd_universe.VerifyCode
+	(*VerifyResponse)(nil),        // 19: fsd_universe.VerifyResponse
 }
 var file_email_proto_depIdxs = []int32{
-	0,  // 0: email.Email.SendActivityAtcJoin:input_type -> email.ActivityAtcJoin
-	1,  // 1: email.Email.SendActivityAtcLeave:input_type -> email.ActivityAtcLeave
-	2,  // 2: email.Email.SendActivityPilotJoin:input_type -> email.ActivityPilotJoin
-	3,  // 3: email.Email.SendActivityPilotLeave:input_type -> email.ActivityPilotLeave
-	4,  // 4: email.Email.SendApplicationPassed:input_type -> email.ApplicationPassed
-	5,  // 5: email.Email.SendApplicationProcessing:input_type -> email.ApplicationProcessing
-	6,  // 6: email.Email.SendApplicationRejected:input_type -> email.ApplicationRejected
-	7,  // 7: email.Email.SendAtcRatingChange:input_type -> email.AtcRatingChange
-	8,  // 8: email.Email.SendBanned:input_type -> email.Banned
-	9,  // 9: email.Email.SendInstructorChange:input_type -> email.InstructorChange
-	10, // 10: email.Email.SendKickedFromServer:input_type -> email.KickedFromServer
-	11, // 11: email.Email.SendPasswordChange:input_type -> email.PasswordChange
-	12, // 12: email.Email.SendPasswordReset:input_type -> email.PasswordReset
-	13, // 13: email.Email.SendPermissionChange:input_type -> email.PermissionChange
-	14, // 14: email.Email.SendRoleChange:input_type -> email.RoleChange
-	15, // 15: email.Email.SendTicketReply:input_type -> email.TicketReply
-	16, // 16: email.Email.SendWelcome:input_type -> email.Welcome
-	18, // 17: email.Email.VerifyEmailCode:input_type -> email.VerifyCode
-	17, // 18: email.Email.SendActivityAtcJoin:output_type -> email.SendResponse
-	17, // 19: email.Email.SendActivityAtcLeave:output_type -> email.SendResponse
-	17, // 20: email.Email.SendActivityPilotJoin:output_type -> email.SendResponse
-	17, // 21: email.Email.SendActivityPilotLeave:output_type -> email.SendResponse
-	17, // 22: email.Email.SendApplicationPassed:output_type -> email.SendResponse
-	17, // 23: email.Email.SendApplicationProcessing:output_type -> email.SendResponse
-	17, // 24: email.Email.SendApplicationRejected:output_type -> email.SendResponse
-	17, // 25: email.Email.SendAtcRatingChange:output_type -> email.SendResponse
-	17, // 26: email.Email.SendBanned:output_type -> email.SendResponse
-	17, // 27: email.Email.SendInstructorChange:output_type -> email.SendResponse
-	17, // 28: email.Email.SendKickedFromServer:output_type -> email.SendResponse
-	17, // 29: email.Email.SendPasswordChange:output_type -> email.SendResponse
-	17, // 30: email.Email.SendPasswordReset:output_type -> email.SendResponse
-	17, // 31: email.Email.SendPermissionChange:output_type -> email.SendResponse
-	17, // 32: email.Email.SendRoleChange:output_type -> email.SendResponse
-	17, // 33: email.Email.SendTicketReply:output_type -> email.SendResponse
-	17, // 34: email.Email.SendWelcome:output_type -> email.SendResponse
-	19, // 35: email.Email.VerifyEmailCode:output_type -> email.VerifyResponse
+	0,  // 0: fsd_universe.Email.SendActivityAtcJoin:input_type -> fsd_universe.ActivityAtcJoin
+	1,  // 1: fsd_universe.Email.SendActivityAtcLeave:input_type -> fsd_universe.ActivityAtcLeave
+	2,  // 2: fsd_universe.Email.SendActivityPilotJoin:input_type -> fsd_universe.ActivityPilotJoin
+	3,  // 3: fsd_universe.Email.SendActivityPilotLeave:input_type -> fsd_universe.ActivityPilotLeave
+	4,  // 4: fsd_universe.Email.SendApplicationPassed:input_type -> fsd_universe.ApplicationPassed
+	5,  // 5: fsd_universe.Email.SendApplicationProcessing:input_type -> fsd_universe.ApplicationProcessing
+	6,  // 6: fsd_universe.Email.SendApplicationRejected:input_type -> fsd_universe.ApplicationRejected
+	7,  // 7: fsd_universe.Email.SendAtcRatingChange:input_type -> fsd_universe.AtcRatingChange
+	8,  // 8: fsd_universe.Email.SendBanned:input_type -> fsd_universe.Banned
+	9,  // 9: fsd_universe.Email.SendInstructorChange:input_type -> fsd_universe.InstructorChange
+	10, // 10: fsd_universe.Email.SendKickedFromServer:input_type -> fsd_universe.KickedFromServer
+	11, // 11: fsd_universe.Email.SendPasswordChange:input_type -> fsd_universe.PasswordChange
+	12, // 12: fsd_universe.Email.SendPasswordReset:input_type -> fsd_universe.PasswordReset
+	13, // 13: fsd_universe.Email.SendPermissionChange:input_type -> fsd_universe.PermissionChange
+	14, // 14: fsd_universe.Email.SendRoleChange:input_type -> fsd_universe.RoleChange
+	15, // 15: fsd_universe.Email.SendTicketReply:input_type -> fsd_universe.TicketReply
+	16, // 16: fsd_universe.Email.SendWelcome:input_type -> fsd_universe.Welcome
+	18, // 17: fsd_universe.Email.VerifyEmailCode:input_type -> fsd_universe.VerifyCode
+	17, // 18: fsd_universe.Email.SendActivityAtcJoin:output_type -> fsd_universe.SendResponse
+	17, // 19: fsd_universe.Email.SendActivityAtcLeave:output_type -> fsd_universe.SendResponse
+	17, // 20: fsd_universe.Email.SendActivityPilotJoin:output_type -> fsd_universe.SendResponse
+	17, // 21: fsd_universe.Email.SendActivityPilotLeave:output_type -> fsd_universe.SendResponse
+	17, // 22: fsd_universe.Email.SendApplicationPassed:output_type -> fsd_universe.SendResponse
+	17, // 23: fsd_universe.Email.SendApplicationProcessing:output_type -> fsd_universe.SendResponse
+	17, // 24: fsd_universe.Email.SendApplicationRejected:output_type -> fsd_universe.SendResponse
+	17, // 25: fsd_universe.Email.SendAtcRatingChange:output_type -> fsd_universe.SendResponse
+	17, // 26: fsd_universe.Email.SendBanned:output_type -> fsd_universe.SendResponse
+	17, // 27: fsd_universe.Email.SendInstructorChange:output_type -> fsd_universe.SendResponse
+	17, // 28: fsd_universe.Email.SendKickedFromServer:output_type -> fsd_universe.SendResponse
+	17, // 29: fsd_universe.Email.SendPasswordChange:output_type -> fsd_universe.SendResponse
+	17, // 30: fsd_universe.Email.SendPasswordReset:output_type -> fsd_universe.SendResponse
+	17, // 31: fsd_universe.Email.SendPermissionChange:output_type -> fsd_universe.SendResponse
+	17, // 32: fsd_universe.Email.SendRoleChange:output_type -> fsd_universe.SendResponse
+	17, // 33: fsd_universe.Email.SendTicketReply:output_type -> fsd_universe.SendResponse
+	17, // 34: fsd_universe.Email.SendWelcome:output_type -> fsd_universe.SendResponse
+	19, // 35: fsd_universe.Email.VerifyEmailCode:output_type -> fsd_universe.VerifyResponse
 	18, // [18:36] is the sub-list for method output_type
 	0,  // [0:18] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
