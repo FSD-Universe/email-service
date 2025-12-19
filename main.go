@@ -57,6 +57,8 @@ func main() {
 	cl := cleaner.NewCleaner(lg)
 	cl.Init()
 
+	defer cl.Clean()
+
 	cl.Add("EmailSender", func(_ context.Context) error {
 		return applicationConfig.EmailConfig.Closer.Close()
 	})
