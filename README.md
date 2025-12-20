@@ -5,9 +5,9 @@
 
 本项目提供邮件发送服务，与邮件验证服务
 
-Http接口请看[API文档](https://api.half-nothing.cn)
+Http接口请看 [API文档](https://api.half-nothing.cn)
 
-gRPC接口请看[proto文件](./src/interfaces/grpc/email.proto)
+gRPC接口请看 [proto文件](./src/interfaces/grpc/email.proto)
 
 ## 如何使用
 
@@ -21,7 +21,7 @@ gRPC接口请看[proto文件](./src/interfaces/grpc/email.proto)
    v. 如果需要添加命令行参数
    ```yml
    services:
-     fsd:
+     email-service:
        image: halfnothing/email-service:latest
        # 省略部分字段
        command:
@@ -30,7 +30,7 @@ gRPC接口请看[proto文件](./src/interfaces/grpc/email.proto)
    推荐使用环境变量代替命令行参数
    ```yml
    services:
-     fsd:
+     email-service:
        image: halfnothing/email-service:latest
        # 省略部分字段
        environment:
@@ -78,8 +78,8 @@ gRPC接口请看[proto文件](./src/interfaces/grpc/email.proto)
 ### 普通部署
 
 1. 获取项目可执行文件
-    - 前往[Release]页面下载最新版本
-    - 前往[Action]页面下载最新开发版本
+    - 前往 [Release] 页面下载最新版本
+    - 前往 [Action] 页面下载最新开发版本
     - 手动[编译](#手动构建)本项目
 2. [可选]下载[`config.yaml`](./docker/config.yaml)配置文件放置于可执行文件同级目录中
 3. 运行可执行文件，如果配置文件存在，则使用配置文件，否则创建默认配置文件
