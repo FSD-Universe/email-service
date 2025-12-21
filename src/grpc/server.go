@@ -71,7 +71,7 @@ func (e *EmailServer) extractAndValidateFields(msg interface{}) bool {
 }
 
 func (e *EmailServer) sendEmailTemplate(emailType config.Email, targetEmail string, data interface{}) (*pb.SendResponse, error) {
-	e.logger.Infof("grpc call, send %s email to %s with arguments %#v", emailType.Value, targetEmail, data)
+	e.logger.Infof("send %s email to %s with arguments %#v", emailType.Value, targetEmail, data)
 	if err := e.sender.SendEmail(emailType, targetEmail, data); err != nil {
 		return FailedResponse, e.handleSendError(err)
 	}
@@ -324,6 +324,7 @@ func (e *EmailServer) RemoveEmailCode(_ context.Context, d *pb.RemoveVerifyCode)
 	if !e.extractAndValidateFields(d) {
 		return nil, status.Error(codes.InvalidArgument, "missing required argument")
 	}
+	e.logger.Infof("remove %s email code", d.Email)
 	e.manager.RemoveEmailCode(d.Email)
 	return &pb.RemoveVerifyCodeResponse{Success: true}, nil
 }
