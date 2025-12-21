@@ -66,7 +66,10 @@ func (c *CodeManager) VerifyEmailCode(target string, code string) error {
 		c.logger.Warnf("email code for %s invalid", target)
 		return email.ErrEmailCodeInvalid
 	}
+	return nil
+}
+
+func (c *CodeManager) RemoveEmailCode(target string) {
 	c.cache.Del(target)
 	c.sendCache.Del(target)
-	return nil
 }

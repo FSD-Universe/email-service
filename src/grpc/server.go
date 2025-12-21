@@ -319,3 +319,11 @@ func (e *EmailServer) VerifyEmailCode(_ context.Context, d *pb.VerifyCode) (*pb.
 	}
 	return &pb.VerifyResponse{Success: false, Code: VerifyUnknown}, status.Error(codes.Internal, "failed to verify email d")
 }
+
+func (e *EmailServer) RemoveEmailCode(_ context.Context, d *pb.RemoveVerifyCode) (*pb.RemoveVerifyCodeResponse, error) {
+	if !e.extractAndValidateFields(d) {
+		return nil, status.Error(codes.InvalidArgument, "missing required argument")
+	}
+	e.manager.RemoveEmailCode(d.Email)
+	return &pb.RemoveVerifyCodeResponse{Success: true}, nil
+}

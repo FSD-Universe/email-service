@@ -154,6 +154,14 @@ message VerifyResponse {
   int32 code = 2; // 0 = success, 1 = code expired or not found, 2 = invalid code, 3 = unknown error
 }
 
+message RemoveVerifyCode {
+  string email = 1;
+}
+
+message RemoveVerifyCodeResponse {
+  bool success = 1;
+}
+
 service Email {
   rpc SendActivityAtcJoin(ActivityAtcJoin) returns (SendResponse);
   rpc SendActivityAtcLeave(ActivityAtcLeave) returns (SendResponse);
@@ -173,4 +181,5 @@ service Email {
   rpc SendTicketReply(TicketReply) returns (SendResponse);
   rpc SendWelcome(Welcome) returns (SendResponse);
   rpc VerifyEmailCode(VerifyCode) returns (VerifyResponse);
+  rpc RemoveEmailCode(RemoveVerifyCode) returns (RemoveVerifyCodeResponse);
 }

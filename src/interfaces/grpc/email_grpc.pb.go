@@ -40,6 +40,7 @@ const (
 	Email_SendTicketReply_FullMethodName           = "/fsd_universe.Email/SendTicketReply"
 	Email_SendWelcome_FullMethodName               = "/fsd_universe.Email/SendWelcome"
 	Email_VerifyEmailCode_FullMethodName           = "/fsd_universe.Email/VerifyEmailCode"
+	Email_RemoveEmailCode_FullMethodName           = "/fsd_universe.Email/RemoveEmailCode"
 )
 
 // EmailClient is the client API for Email service.
@@ -64,6 +65,7 @@ type EmailClient interface {
 	SendTicketReply(ctx context.Context, in *TicketReply, opts ...grpc.CallOption) (*SendResponse, error)
 	SendWelcome(ctx context.Context, in *Welcome, opts ...grpc.CallOption) (*SendResponse, error)
 	VerifyEmailCode(ctx context.Context, in *VerifyCode, opts ...grpc.CallOption) (*VerifyResponse, error)
+	RemoveEmailCode(ctx context.Context, in *RemoveVerifyCode, opts ...grpc.CallOption) (*RemoveVerifyCodeResponse, error)
 }
 
 type emailClient struct {
@@ -254,6 +256,16 @@ func (c *emailClient) VerifyEmailCode(ctx context.Context, in *VerifyCode, opts 
 	return out, nil
 }
 
+func (c *emailClient) RemoveEmailCode(ctx context.Context, in *RemoveVerifyCode, opts ...grpc.CallOption) (*RemoveVerifyCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveVerifyCodeResponse)
+	err := c.cc.Invoke(ctx, Email_RemoveEmailCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // EmailServer is the server API for Email service.
 // All implementations must embed UnimplementedEmailServer
 // for forward compatibility.
@@ -276,6 +288,7 @@ type EmailServer interface {
 	SendTicketReply(context.Context, *TicketReply) (*SendResponse, error)
 	SendWelcome(context.Context, *Welcome) (*SendResponse, error)
 	VerifyEmailCode(context.Context, *VerifyCode) (*VerifyResponse, error)
+	RemoveEmailCode(context.Context, *RemoveVerifyCode) (*RemoveVerifyCodeResponse, error)
 	mustEmbedUnimplementedEmailServer()
 }
 
@@ -339,6 +352,9 @@ func (UnimplementedEmailServer) SendWelcome(context.Context, *Welcome) (*SendRes
 }
 func (UnimplementedEmailServer) VerifyEmailCode(context.Context, *VerifyCode) (*VerifyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyEmailCode not implemented")
+}
+func (UnimplementedEmailServer) RemoveEmailCode(context.Context, *RemoveVerifyCode) (*RemoveVerifyCodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveEmailCode not implemented")
 }
 func (UnimplementedEmailServer) mustEmbedUnimplementedEmailServer() {}
 func (UnimplementedEmailServer) testEmbeddedByValue()               {}
@@ -685,6 +701,24 @@ func _Email_VerifyEmailCode_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Email_RemoveEmailCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveVerifyCode)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmailServer).RemoveEmailCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Email_RemoveEmailCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmailServer).RemoveEmailCode(ctx, req.(*RemoveVerifyCode))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Email_ServiceDesc is the grpc.ServiceDesc for Email service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -763,6 +797,10 @@ var Email_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VerifyEmailCode",
 			Handler:    _Email_VerifyEmailCode_Handler,
+		},
+		{
+			MethodName: "RemoveEmailCode",
+			Handler:    _Email_RemoveEmailCode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
