@@ -68,5 +68,6 @@ func (c *CodeManager) VerifyEmailCode(target string, cid int, code string) error
 		return email.ErrEmailCodeInvalid
 	}
 	c.cache.Del(target)
+	c.sendCache.Del(target)
 	return nil
 }
