@@ -14,5 +14,7 @@ const (
 	AppVersion    = "0.1.0"
 	ConfigVersion = "0.1.0"
 
+	ServiceName = "email-service"
+
 	EnvDownloadPrefix = "DOWNLOAD_PREFIX"
 )

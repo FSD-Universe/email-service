@@ -166,6 +166,7 @@ func (e *EmailConfig) InitDefaults() {
 	e.Template.InitDefaults()
 }
 
+//goland:noinspection GoRedundantElseInIf
 func (e *EmailConfig) Verify() (bool, error) {
 	if e.Host == "" {
 		return false, errors.New("smtp server host cannot be empty")

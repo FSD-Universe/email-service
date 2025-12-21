@@ -7,7 +7,6 @@ package grpc
 import (
 	"context"
 	"email-service/src/interfaces/config"
-	"email-service/src/interfaces/content"
 	"email-service/src/interfaces/email"
 	pb "email-service/src/interfaces/grpc"
 	"errors"
@@ -30,11 +29,15 @@ type EmailServer struct {
 	manager email.CodeManagerInterface
 }
 
-func NewEmailServer(content *content.ApplicationContent) *EmailServer {
+func NewEmailServer(
+	lg logger.Interface,
+	sender email.SenderInterface,
+	manager email.CodeManagerInterface,
+) *EmailServer {
 	return &EmailServer{
-		logger:  logger.NewLoggerAdapter(content.Logger(), "grpc-server"),
-		sender:  content.EmailSender(),
-		manager: content.CodeManager(),
+		logger:  logger.NewLoggerAdapter(lg, "grpc-server"),
+		sender:  sender,
+		manager: manager,
 	}
 }
 

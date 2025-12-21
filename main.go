@@ -77,30 +77,38 @@ func main() {
 	sendCache := cache.NewMemoryCache[string, time.Time](applicationConfig.EmailConfig.VerifyIntervalDuration)
 	cl.Add("Cache", func(_ context.Context) error { codeCache.Close(); sendCache.Close(); return nil })
 
-	applicationContent := content.NewApplicationContentBuilder().
+	emailSender := email.NewSender(lg, applicationConfig.EmailConfig)
+	emailManager := email.NewCodeManager(lg, applicationConfig.EmailConfig, codeCache, sendCache)
+
+	contentBuilder := content.NewApplicationContentBuilder().
 		SetConfigManager(configManager).
 		SetCleaner(cl).
 		SetLogger(lg).
-		SetEmailSender(email.NewSender(lg, applicationConfig.EmailConfig)).
-		SetCodeManager(email.NewCodeManager(lg, applicationConfig.EmailConfig, codeCache, sendCache)).
-		Build()
+		SetEmailSender(emailSender).
+		SetCodeManager(emailManager)
 
-	go server.StartHttpServer(applicationContent)
-
-	if applicationConfig.ServerConfig.GrpcServerConfig.Enable {
-		started := make(chan bool)
-		initFunc := func(s *grpc.Server) {
-			grpcServer := grpcImpl.NewEmailServer(applicationContent)
-			pb.RegisterEmailServer(s, grpcServer)
-		}
-		if applicationConfig.TelemetryConfig.Enable && applicationConfig.TelemetryConfig.GrpcServerTrace {
-			go grpcUtils.StartGrpcServerWithTrace(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
-		} else {
-			go grpcUtils.StartGrpcServer(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
-		}
-		go discovery.StartServiceDiscovery(lg, cl, started, utils.NewVersion(g.AppVersion),
-			"email-service", applicationConfig.ServerConfig.GrpcServerConfig.Port)
+	started := make(chan bool)
+	initFunc := func(s *grpc.Server) {
+		grpcServer := grpcImpl.NewEmailServer(lg, emailSender, emailManager)
+		pb.RegisterEmailServer(s, grpcServer)
 	}
+	if applicationConfig.TelemetryConfig.Enable && applicationConfig.TelemetryConfig.GrpcServerTrace {
+		go grpcUtils.StartGrpcServerWithTrace(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
+	} else {
+		go grpcUtils.StartGrpcServer(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
+	}
+
+	discovery.StartServiceDiscovery(
+		context.Background(),
+		lg,
+		cl,
+		started,
+		utils.NewVersion(g.AppVersion),
+		g.ServiceName,
+		applicationConfig.ServerConfig.GrpcServerConfig.Port,
+	)
+
+	go server.StartHttpServer(contentBuilder.Build())
 
 	cl.Wait()
 }
