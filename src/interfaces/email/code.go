@@ -10,7 +10,6 @@ import (
 )
 
 type CodeData struct {
-	Cid  int
 	Code string
 }
 
@@ -21,6 +20,6 @@ var (
 )
 
 type CodeManagerInterface interface {
-	GenerateEmailCode(target string, cid int) (*VerifyCodeEmail, time.Duration, error)
-	VerifyEmailCode(target string, cid int, code string) error
+	GenerateEmailCode(target string) (*VerifyCodeEmail, time.Duration, error)
+	VerifyEmailCode(target string, code string) error
 }

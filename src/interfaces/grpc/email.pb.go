@@ -1338,9 +1338,8 @@ func (x *SendResponse) GetSuccess() bool {
 
 type VerifyCode struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Cid           int32                  `protobuf:"varint,1,opt,name=cid,proto3" json:"cid,omitempty"`
-	Code          string                 `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
-	Email         string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	Code          string                 `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
+	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1373,13 +1372,6 @@ func (x *VerifyCode) ProtoReflect() protoreflect.Message {
 // Deprecated: Use VerifyCode.ProtoReflect.Descriptor instead.
 func (*VerifyCode) Descriptor() ([]byte, []int) {
 	return file_email_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *VerifyCode) GetCid() int32 {
-	if x != nil {
-		return x.Cid
-	}
-	return 0
 }
 
 func (x *VerifyCode) GetCode() string {
@@ -1556,12 +1548,11 @@ const file_email_proto_rawDesc = "" +
 	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
 	"\x03cid\x18\x02 \x01(\tR\x03cid\"(\n" +
 	"\fSendResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\"H\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"6\n" +
 	"\n" +
-	"VerifyCode\x12\x10\n" +
-	"\x03cid\x18\x01 \x01(\x05R\x03cid\x12\x12\n" +
-	"\x04code\x18\x02 \x01(\tR\x04code\x12\x14\n" +
-	"\x05email\x18\x03 \x01(\tR\x05email\">\n" +
+	"VerifyCode\x12\x12\n" +
+	"\x04code\x18\x01 \x01(\tR\x04code\x12\x14\n" +
+	"\x05email\x18\x02 \x01(\tR\x05email\">\n" +
 	"\x0eVerifyResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x12\n" +
 	"\x04code\x18\x02 \x01(\x05R\x04code2\xb4\v\n" +

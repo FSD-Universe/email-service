@@ -138,7 +138,6 @@ type WelcomeEmail struct {
 }
 
 type VerifyCodeEmail struct {
-	Cid       string
 	Code      string
 	ExpiredAt string
 	Expired   string

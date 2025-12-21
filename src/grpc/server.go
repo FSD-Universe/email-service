@@ -304,10 +304,10 @@ const (
 )
 
 func (e *EmailServer) VerifyEmailCode(_ context.Context, d *pb.VerifyCode) (*pb.VerifyResponse, error) {
-	if !e.extractAndValidateFields(d) || d.Cid <= 0 {
+	if !e.extractAndValidateFields(d) {
 		return nil, status.Error(codes.InvalidArgument, "missing required argument")
 	}
-	err := e.manager.VerifyEmailCode(d.Email, int(d.Cid), d.Code)
+	err := e.manager.VerifyEmailCode(d.Email, d.Code)
 	if err == nil {
 		return &pb.VerifyResponse{Success: true, Code: VerifySuccess}, nil
 	}

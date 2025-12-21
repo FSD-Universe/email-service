@@ -35,7 +35,7 @@ func NewEmailService(
 }
 
 func (e *EmailService) SendEmailCode(form *DTO.SendEmailCode) *dto.ApiResponse[DTO.SendEmailCodeResponse] {
-	emailData, duration, err := e.manager.GenerateEmailCode(form.Email, form.Cid)
+	emailData, duration, err := e.manager.GenerateEmailCode(form.Email)
 	if err != nil {
 		if errors.Is(err, email.ErrEmailCodeCooldown) {
 			return dto.NewApiResponse[DTO.SendEmailCodeResponse](

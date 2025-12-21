@@ -145,9 +145,8 @@ message SendResponse {
 }
 
 message VerifyCode {
-  int32 cid = 1;
-  string code = 2;
-  string email = 3;
+  string code = 1;
+  string email = 2;
 }
 
 message VerifyResponse {
