@@ -40,6 +40,8 @@ func StartHttpServer(content *content.ApplicationContent) {
 		),
 	)
 
+	http.SetHealthPoint(e)
+
 	apiGroup := e.Group("/api/v1")
 	emailGroup := apiGroup.Group("/emails")
 	emailGroup.POST("/code", emailController.SendEmailCode)

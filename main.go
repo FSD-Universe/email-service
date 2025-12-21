@@ -98,7 +98,7 @@ func main() {
 		go grpcUtils.StartGrpcServer(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
 	}
 
-	discovery.StartServiceDiscovery(
+	service := discovery.StartServiceDiscovery(
 		context.Background(),
 		lg,
 		cl,
@@ -107,6 +107,15 @@ func main() {
 		g.ServiceName,
 		applicationConfig.ServerConfig.GrpcServerConfig.Port,
 	)
+
+	go func() {
+		for {
+			select {
+			case <-service.StatusChannel():
+				continue
+			}
+		}
+	}()
 
 	go server.StartHttpServer(contentBuilder.Build())
 
