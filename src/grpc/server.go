@@ -271,7 +271,13 @@ func (e *EmailServer) SendRoleChange(_ context.Context, d *pb.RoleChange) (*pb.S
 		Operator: d.Operator,
 		Contact:  d.Contact,
 	}
-	return e.sendEmailTemplate(config.EmailRoleChange, d.TargetEmail, data)
+	for _, dest := range d.TargetEmail {
+		res, err := e.sendEmailTemplate(config.EmailRoleChange, dest, data)
+		if err != nil {
+			return res, err
+		}
+	}
+	return SuccessResponse, nil
 }
 
 func (e *EmailServer) SendTicketReply(_ context.Context, d *pb.TicketReply) (*pb.SendResponse, error) {
