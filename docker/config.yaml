@@ -112,6 +112,10 @@ email:
         enable: true
         file_name: permission_change.template
         subject: 飞控权限变更通知
+      email_change_email:
+        enable: true
+        file_name: email_change.template
+        subject: 邮箱变更通知
 
 # 服务配置
 server:

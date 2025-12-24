@@ -71,6 +71,7 @@ type TemplateConfig struct {
 	BannedEmail                *Template `yaml:"banned_email"`
 	RoleChangeEmail            *Template `yaml:"role_change_email"`
 	PermissionChangeEmail      *Template `yaml:"permission_change_email"`
+	EmailChangeEmail           *Template `yaml:"email_change_email"`
 	// 内部字段
 	LocalPath string `yaml:"-"`
 }
@@ -97,6 +98,7 @@ func (t *TemplateConfig) InitDefaults() {
 	t.BannedEmail = &Template{Enable: true, FileName: "banned.template", Subject: "您已被封禁", Type: EmailBanned}
 	t.RoleChangeEmail = &Template{Enable: true, FileName: "role_change.template", Subject: "飞控角色变更通知", Type: EmailRoleChange}
 	t.PermissionChangeEmail = &Template{Enable: true, FileName: "permission_change.template", Subject: "飞控权限变更通知", Type: EmailPermissionChange}
+	t.EmailChangeEmail = &Template{Enable: true, FileName: "email_change.template", Subject: "邮箱变更通知", Type: EmailEmailChange}
 }
 
 func (t *TemplateConfig) Verify() (bool, error) {
@@ -238,4 +240,5 @@ var (
 	EmailBanned                = utils.NewEnum("banned", &EmailData{Enable: true, RemotePath: "/docker/data/templates/banned.template"})
 	EmailRoleChange            = utils.NewEnum("role_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/role_change.template"})
 	EmailPermissionChange      = utils.NewEnum("permission_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/permission_change.template"})
+	EmailEmailChange           = utils.NewEnum("email_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/email_change.template"})
 )

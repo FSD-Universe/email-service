@@ -1,3 +1,6 @@
+<!-- Copyright (c) 2025 Half_nothing -->
+<!-- SPDX-License-Identifier: MIT -->
+
 <p>尊敬的{{.Cid}}: </p>
 <br/>
 <p>欢迎注册本平台, 祝连飞顺利, 管制愉快</p>

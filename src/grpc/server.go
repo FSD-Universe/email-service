@@ -296,6 +296,20 @@ func (e *EmailServer) SendWelcome(_ context.Context, d *pb.Welcome) (*pb.SendRes
 	return e.sendEmailTemplate(config.EmailWelcome, d.TargetEmail, data)
 }
 
+func (e *EmailServer) SendEmailChange(_ context.Context, d *pb.EmailChange) (*pb.SendResponse, error) {
+	if !e.extractAndValidateFields(d) {
+		return nil, status.Error(codes.InvalidArgument, "missing required argument")
+	}
+	data := &email.ChangeEmail{
+		Cid:       d.Cid,
+		Email:     d.Email,
+		Time:      d.Time,
+		IP:        d.Ip,
+		UserAgent: d.UserAgent,
+	}
+	return e.sendEmailTemplate(config.EmailEmailChange, d.TargetEmail, data)
+}
+
 const (
 	VerifySuccess int32 = iota
 	VerifyExpired

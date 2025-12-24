@@ -1292,6 +1292,90 @@ func (x *Welcome) GetCid() string {
 	return ""
 }
 
+type EmailChange struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TargetEmail   string                 `protobuf:"bytes,1,opt,name=targetEmail,proto3" json:"targetEmail,omitempty"`
+	Cid           string                 `protobuf:"bytes,2,opt,name=cid,proto3" json:"cid,omitempty"`
+	Email         string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	Time          string                 `protobuf:"bytes,4,opt,name=time,proto3" json:"time,omitempty"`
+	Ip            string                 `protobuf:"bytes,5,opt,name=ip,proto3" json:"ip,omitempty"`
+	UserAgent     string                 `protobuf:"bytes,6,opt,name=userAgent,proto3" json:"userAgent,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EmailChange) Reset() {
+	*x = EmailChange{}
+	mi := &file_email_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EmailChange) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EmailChange) ProtoMessage() {}
+
+func (x *EmailChange) ProtoReflect() protoreflect.Message {
+	mi := &file_email_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EmailChange.ProtoReflect.Descriptor instead.
+func (*EmailChange) Descriptor() ([]byte, []int) {
+	return file_email_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *EmailChange) GetTargetEmail() string {
+	if x != nil {
+		return x.TargetEmail
+	}
+	return ""
+}
+
+func (x *EmailChange) GetCid() string {
+	if x != nil {
+		return x.Cid
+	}
+	return ""
+}
+
+func (x *EmailChange) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *EmailChange) GetTime() string {
+	if x != nil {
+		return x.Time
+	}
+	return ""
+}
+
+func (x *EmailChange) GetIp() string {
+	if x != nil {
+		return x.Ip
+	}
+	return ""
+}
+
+func (x *EmailChange) GetUserAgent() string {
+	if x != nil {
+		return x.UserAgent
+	}
+	return ""
+}
+
 type SendResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
@@ -1301,7 +1385,7 @@ type SendResponse struct {
 
 func (x *SendResponse) Reset() {
 	*x = SendResponse{}
-	mi := &file_email_proto_msgTypes[17]
+	mi := &file_email_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1313,7 +1397,7 @@ func (x *SendResponse) String() string {
 func (*SendResponse) ProtoMessage() {}
 
 func (x *SendResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_email_proto_msgTypes[17]
+	mi := &file_email_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1326,7 +1410,7 @@ func (x *SendResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendResponse.ProtoReflect.Descriptor instead.
 func (*SendResponse) Descriptor() ([]byte, []int) {
-	return file_email_proto_rawDescGZIP(), []int{17}
+	return file_email_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *SendResponse) GetSuccess() bool {
@@ -1346,7 +1430,7 @@ type VerifyCode struct {
 
 func (x *VerifyCode) Reset() {
 	*x = VerifyCode{}
-	mi := &file_email_proto_msgTypes[18]
+	mi := &file_email_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1358,7 +1442,7 @@ func (x *VerifyCode) String() string {
 func (*VerifyCode) ProtoMessage() {}
 
 func (x *VerifyCode) ProtoReflect() protoreflect.Message {
-	mi := &file_email_proto_msgTypes[18]
+	mi := &file_email_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1371,7 +1455,7 @@ func (x *VerifyCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyCode.ProtoReflect.Descriptor instead.
 func (*VerifyCode) Descriptor() ([]byte, []int) {
-	return file_email_proto_rawDescGZIP(), []int{18}
+	return file_email_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *VerifyCode) GetCode() string {
@@ -1398,7 +1482,7 @@ type VerifyResponse struct {
 
 func (x *VerifyResponse) Reset() {
 	*x = VerifyResponse{}
-	mi := &file_email_proto_msgTypes[19]
+	mi := &file_email_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1410,7 +1494,7 @@ func (x *VerifyResponse) String() string {
 func (*VerifyResponse) ProtoMessage() {}
 
 func (x *VerifyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_email_proto_msgTypes[19]
+	mi := &file_email_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1423,7 +1507,7 @@ func (x *VerifyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyResponse.ProtoReflect.Descriptor instead.
 func (*VerifyResponse) Descriptor() ([]byte, []int) {
-	return file_email_proto_rawDescGZIP(), []int{19}
+	return file_email_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *VerifyResponse) GetSuccess() bool {
@@ -1449,7 +1533,7 @@ type RemoveVerifyCode struct {
 
 func (x *RemoveVerifyCode) Reset() {
 	*x = RemoveVerifyCode{}
-	mi := &file_email_proto_msgTypes[20]
+	mi := &file_email_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1461,7 +1545,7 @@ func (x *RemoveVerifyCode) String() string {
 func (*RemoveVerifyCode) ProtoMessage() {}
 
 func (x *RemoveVerifyCode) ProtoReflect() protoreflect.Message {
-	mi := &file_email_proto_msgTypes[20]
+	mi := &file_email_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1474,7 +1558,7 @@ func (x *RemoveVerifyCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveVerifyCode.ProtoReflect.Descriptor instead.
 func (*RemoveVerifyCode) Descriptor() ([]byte, []int) {
-	return file_email_proto_rawDescGZIP(), []int{20}
+	return file_email_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *RemoveVerifyCode) GetEmail() string {
@@ -1493,7 +1577,7 @@ type RemoveVerifyCodeResponse struct {
 
 func (x *RemoveVerifyCodeResponse) Reset() {
 	*x = RemoveVerifyCodeResponse{}
-	mi := &file_email_proto_msgTypes[21]
+	mi := &file_email_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1505,7 +1589,7 @@ func (x *RemoveVerifyCodeResponse) String() string {
 func (*RemoveVerifyCodeResponse) ProtoMessage() {}
 
 func (x *RemoveVerifyCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_email_proto_msgTypes[21]
+	mi := &file_email_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1518,7 +1602,7 @@ func (x *RemoveVerifyCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveVerifyCodeResponse.ProtoReflect.Descriptor instead.
 func (*RemoveVerifyCodeResponse) Descriptor() ([]byte, []int) {
-	return file_email_proto_rawDescGZIP(), []int{21}
+	return file_email_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *RemoveVerifyCodeResponse) GetSuccess() bool {
@@ -1634,7 +1718,14 @@ const file_email_proto_rawDesc = "" +
 	"\x05reply\x18\x04 \x01(\tR\x05reply\"=\n" +
 	"\aWelcome\x12 \n" +
 	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
-	"\x03cid\x18\x02 \x01(\tR\x03cid\"(\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\"\x99\x01\n" +
+	"\vEmailChange\x12 \n" +
+	"\vtargetEmail\x18\x01 \x01(\tR\vtargetEmail\x12\x10\n" +
+	"\x03cid\x18\x02 \x01(\tR\x03cid\x12\x14\n" +
+	"\x05email\x18\x03 \x01(\tR\x05email\x12\x12\n" +
+	"\x04time\x18\x04 \x01(\tR\x04time\x12\x0e\n" +
+	"\x02ip\x18\x05 \x01(\tR\x02ip\x12\x1c\n" +
+	"\tuserAgent\x18\x06 \x01(\tR\tuserAgent\"(\n" +
 	"\fSendResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\"6\n" +
 	"\n" +
@@ -1647,7 +1738,7 @@ const file_email_proto_rawDesc = "" +
 	"\x10RemoveVerifyCode\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\"4\n" +
 	"\x18RemoveVerifyCodeResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess2\x8f\f\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess2\xd9\f\n" +
 	"\x05Email\x12P\n" +
 	"\x13SendActivityAtcJoin\x12\x1d.fsd_universe.ActivityAtcJoin\x1a\x1a.fsd_universe.SendResponse\x12R\n" +
 	"\x14SendActivityAtcLeave\x12\x1e.fsd_universe.ActivityAtcLeave\x1a\x1a.fsd_universe.SendResponse\x12T\n" +
@@ -1666,7 +1757,8 @@ const file_email_proto_rawDesc = "" +
 	"\x14SendPermissionChange\x12\x1e.fsd_universe.PermissionChange\x1a\x1a.fsd_universe.SendResponse\x12F\n" +
 	"\x0eSendRoleChange\x12\x18.fsd_universe.RoleChange\x1a\x1a.fsd_universe.SendResponse\x12H\n" +
 	"\x0fSendTicketReply\x12\x19.fsd_universe.TicketReply\x1a\x1a.fsd_universe.SendResponse\x12@\n" +
-	"\vSendWelcome\x12\x15.fsd_universe.Welcome\x1a\x1a.fsd_universe.SendResponse\x12I\n" +
+	"\vSendWelcome\x12\x15.fsd_universe.Welcome\x1a\x1a.fsd_universe.SendResponse\x12H\n" +
+	"\x0fSendEmailChange\x12\x19.fsd_universe.EmailChange\x1a\x1a.fsd_universe.SendResponse\x12I\n" +
 	"\x0fVerifyEmailCode\x12\x18.fsd_universe.VerifyCode\x1a\x1c.fsd_universe.VerifyResponse\x12Y\n" +
 	"\x0fRemoveEmailCode\x12\x1e.fsd_universe.RemoveVerifyCode\x1a&.fsd_universe.RemoveVerifyCodeResponseB\x15Z\x13src/interfaces/grpcb\x06proto3"
 
@@ -1682,7 +1774,7 @@ func file_email_proto_rawDescGZIP() []byte {
 	return file_email_proto_rawDescData
 }
 
-var file_email_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_email_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
 var file_email_proto_goTypes = []any{
 	(*ActivityAtcJoin)(nil),          // 0: fsd_universe.ActivityAtcJoin
 	(*ActivityAtcLeave)(nil),         // 1: fsd_universe.ActivityAtcLeave
@@ -1701,11 +1793,12 @@ var file_email_proto_goTypes = []any{
 	(*RoleChange)(nil),               // 14: fsd_universe.RoleChange
 	(*TicketReply)(nil),              // 15: fsd_universe.TicketReply
 	(*Welcome)(nil),                  // 16: fsd_universe.Welcome
-	(*SendResponse)(nil),             // 17: fsd_universe.SendResponse
-	(*VerifyCode)(nil),               // 18: fsd_universe.VerifyCode
-	(*VerifyResponse)(nil),           // 19: fsd_universe.VerifyResponse
-	(*RemoveVerifyCode)(nil),         // 20: fsd_universe.RemoveVerifyCode
-	(*RemoveVerifyCodeResponse)(nil), // 21: fsd_universe.RemoveVerifyCodeResponse
+	(*EmailChange)(nil),              // 17: fsd_universe.EmailChange
+	(*SendResponse)(nil),             // 18: fsd_universe.SendResponse
+	(*VerifyCode)(nil),               // 19: fsd_universe.VerifyCode
+	(*VerifyResponse)(nil),           // 20: fsd_universe.VerifyResponse
+	(*RemoveVerifyCode)(nil),         // 21: fsd_universe.RemoveVerifyCode
+	(*RemoveVerifyCodeResponse)(nil), // 22: fsd_universe.RemoveVerifyCodeResponse
 }
 var file_email_proto_depIdxs = []int32{
 	0,  // 0: fsd_universe.Email.SendActivityAtcJoin:input_type -> fsd_universe.ActivityAtcJoin
@@ -1725,29 +1818,31 @@ var file_email_proto_depIdxs = []int32{
 	14, // 14: fsd_universe.Email.SendRoleChange:input_type -> fsd_universe.RoleChange
 	15, // 15: fsd_universe.Email.SendTicketReply:input_type -> fsd_universe.TicketReply
 	16, // 16: fsd_universe.Email.SendWelcome:input_type -> fsd_universe.Welcome
-	18, // 17: fsd_universe.Email.VerifyEmailCode:input_type -> fsd_universe.VerifyCode
-	20, // 18: fsd_universe.Email.RemoveEmailCode:input_type -> fsd_universe.RemoveVerifyCode
-	17, // 19: fsd_universe.Email.SendActivityAtcJoin:output_type -> fsd_universe.SendResponse
-	17, // 20: fsd_universe.Email.SendActivityAtcLeave:output_type -> fsd_universe.SendResponse
-	17, // 21: fsd_universe.Email.SendActivityPilotJoin:output_type -> fsd_universe.SendResponse
-	17, // 22: fsd_universe.Email.SendActivityPilotLeave:output_type -> fsd_universe.SendResponse
-	17, // 23: fsd_universe.Email.SendApplicationPassed:output_type -> fsd_universe.SendResponse
-	17, // 24: fsd_universe.Email.SendApplicationProcessing:output_type -> fsd_universe.SendResponse
-	17, // 25: fsd_universe.Email.SendApplicationRejected:output_type -> fsd_universe.SendResponse
-	17, // 26: fsd_universe.Email.SendAtcRatingChange:output_type -> fsd_universe.SendResponse
-	17, // 27: fsd_universe.Email.SendBanned:output_type -> fsd_universe.SendResponse
-	17, // 28: fsd_universe.Email.SendInstructorChange:output_type -> fsd_universe.SendResponse
-	17, // 29: fsd_universe.Email.SendKickedFromServer:output_type -> fsd_universe.SendResponse
-	17, // 30: fsd_universe.Email.SendPasswordChange:output_type -> fsd_universe.SendResponse
-	17, // 31: fsd_universe.Email.SendPasswordReset:output_type -> fsd_universe.SendResponse
-	17, // 32: fsd_universe.Email.SendPermissionChange:output_type -> fsd_universe.SendResponse
-	17, // 33: fsd_universe.Email.SendRoleChange:output_type -> fsd_universe.SendResponse
-	17, // 34: fsd_universe.Email.SendTicketReply:output_type -> fsd_universe.SendResponse
-	17, // 35: fsd_universe.Email.SendWelcome:output_type -> fsd_universe.SendResponse
-	19, // 36: fsd_universe.Email.VerifyEmailCode:output_type -> fsd_universe.VerifyResponse
-	21, // 37: fsd_universe.Email.RemoveEmailCode:output_type -> fsd_universe.RemoveVerifyCodeResponse
-	19, // [19:38] is the sub-list for method output_type
-	0,  // [0:19] is the sub-list for method input_type
+	17, // 17: fsd_universe.Email.SendEmailChange:input_type -> fsd_universe.EmailChange
+	19, // 18: fsd_universe.Email.VerifyEmailCode:input_type -> fsd_universe.VerifyCode
+	21, // 19: fsd_universe.Email.RemoveEmailCode:input_type -> fsd_universe.RemoveVerifyCode
+	18, // 20: fsd_universe.Email.SendActivityAtcJoin:output_type -> fsd_universe.SendResponse
+	18, // 21: fsd_universe.Email.SendActivityAtcLeave:output_type -> fsd_universe.SendResponse
+	18, // 22: fsd_universe.Email.SendActivityPilotJoin:output_type -> fsd_universe.SendResponse
+	18, // 23: fsd_universe.Email.SendActivityPilotLeave:output_type -> fsd_universe.SendResponse
+	18, // 24: fsd_universe.Email.SendApplicationPassed:output_type -> fsd_universe.SendResponse
+	18, // 25: fsd_universe.Email.SendApplicationProcessing:output_type -> fsd_universe.SendResponse
+	18, // 26: fsd_universe.Email.SendApplicationRejected:output_type -> fsd_universe.SendResponse
+	18, // 27: fsd_universe.Email.SendAtcRatingChange:output_type -> fsd_universe.SendResponse
+	18, // 28: fsd_universe.Email.SendBanned:output_type -> fsd_universe.SendResponse
+	18, // 29: fsd_universe.Email.SendInstructorChange:output_type -> fsd_universe.SendResponse
+	18, // 30: fsd_universe.Email.SendKickedFromServer:output_type -> fsd_universe.SendResponse
+	18, // 31: fsd_universe.Email.SendPasswordChange:output_type -> fsd_universe.SendResponse
+	18, // 32: fsd_universe.Email.SendPasswordReset:output_type -> fsd_universe.SendResponse
+	18, // 33: fsd_universe.Email.SendPermissionChange:output_type -> fsd_universe.SendResponse
+	18, // 34: fsd_universe.Email.SendRoleChange:output_type -> fsd_universe.SendResponse
+	18, // 35: fsd_universe.Email.SendTicketReply:output_type -> fsd_universe.SendResponse
+	18, // 36: fsd_universe.Email.SendWelcome:output_type -> fsd_universe.SendResponse
+	18, // 37: fsd_universe.Email.SendEmailChange:output_type -> fsd_universe.SendResponse
+	20, // 38: fsd_universe.Email.VerifyEmailCode:output_type -> fsd_universe.VerifyResponse
+	22, // 39: fsd_universe.Email.RemoveEmailCode:output_type -> fsd_universe.RemoveVerifyCodeResponse
+	20, // [20:40] is the sub-list for method output_type
+	0,  // [0:20] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1764,7 +1859,7 @@ func file_email_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_email_proto_rawDesc), len(file_email_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   22,
+			NumMessages:   23,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

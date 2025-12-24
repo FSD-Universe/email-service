@@ -39,6 +39,7 @@ const (
 	Email_SendRoleChange_FullMethodName            = "/fsd_universe.Email/SendRoleChange"
 	Email_SendTicketReply_FullMethodName           = "/fsd_universe.Email/SendTicketReply"
 	Email_SendWelcome_FullMethodName               = "/fsd_universe.Email/SendWelcome"
+	Email_SendEmailChange_FullMethodName           = "/fsd_universe.Email/SendEmailChange"
 	Email_VerifyEmailCode_FullMethodName           = "/fsd_universe.Email/VerifyEmailCode"
 	Email_RemoveEmailCode_FullMethodName           = "/fsd_universe.Email/RemoveEmailCode"
 )
@@ -64,6 +65,7 @@ type EmailClient interface {
 	SendRoleChange(ctx context.Context, in *RoleChange, opts ...grpc.CallOption) (*SendResponse, error)
 	SendTicketReply(ctx context.Context, in *TicketReply, opts ...grpc.CallOption) (*SendResponse, error)
 	SendWelcome(ctx context.Context, in *Welcome, opts ...grpc.CallOption) (*SendResponse, error)
+	SendEmailChange(ctx context.Context, in *EmailChange, opts ...grpc.CallOption) (*SendResponse, error)
 	VerifyEmailCode(ctx context.Context, in *VerifyCode, opts ...grpc.CallOption) (*VerifyResponse, error)
 	RemoveEmailCode(ctx context.Context, in *RemoveVerifyCode, opts ...grpc.CallOption) (*RemoveVerifyCodeResponse, error)
 }
@@ -246,6 +248,16 @@ func (c *emailClient) SendWelcome(ctx context.Context, in *Welcome, opts ...grpc
 	return out, nil
 }
 
+func (c *emailClient) SendEmailChange(ctx context.Context, in *EmailChange, opts ...grpc.CallOption) (*SendResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendResponse)
+	err := c.cc.Invoke(ctx, Email_SendEmailChange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *emailClient) VerifyEmailCode(ctx context.Context, in *VerifyCode, opts ...grpc.CallOption) (*VerifyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(VerifyResponse)
@@ -287,6 +299,7 @@ type EmailServer interface {
 	SendRoleChange(context.Context, *RoleChange) (*SendResponse, error)
 	SendTicketReply(context.Context, *TicketReply) (*SendResponse, error)
 	SendWelcome(context.Context, *Welcome) (*SendResponse, error)
+	SendEmailChange(context.Context, *EmailChange) (*SendResponse, error)
 	VerifyEmailCode(context.Context, *VerifyCode) (*VerifyResponse, error)
 	RemoveEmailCode(context.Context, *RemoveVerifyCode) (*RemoveVerifyCodeResponse, error)
 	mustEmbedUnimplementedEmailServer()
@@ -349,6 +362,9 @@ func (UnimplementedEmailServer) SendTicketReply(context.Context, *TicketReply) (
 }
 func (UnimplementedEmailServer) SendWelcome(context.Context, *Welcome) (*SendResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendWelcome not implemented")
+}
+func (UnimplementedEmailServer) SendEmailChange(context.Context, *EmailChange) (*SendResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendEmailChange not implemented")
 }
 func (UnimplementedEmailServer) VerifyEmailCode(context.Context, *VerifyCode) (*VerifyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyEmailCode not implemented")
@@ -683,6 +699,24 @@ func _Email_SendWelcome_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Email_SendEmailChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmailChange)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmailServer).SendEmailChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Email_SendEmailChange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmailServer).SendEmailChange(ctx, req.(*EmailChange))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Email_VerifyEmailCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(VerifyCode)
 	if err := dec(in); err != nil {
@@ -793,6 +827,10 @@ var Email_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SendWelcome",
 			Handler:    _Email_SendWelcome_Handler,
+		},
+		{
+			MethodName: "SendEmailChange",
+			Handler:    _Email_SendEmailChange_Handler,
 		},
 		{
 			MethodName: "VerifyEmailCode",

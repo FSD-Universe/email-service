@@ -137,6 +137,14 @@ type WelcomeEmail struct {
 	Cid string
 }
 
+type ChangeEmail struct {
+	Cid       string
+	Email     string
+	Time      string
+	IP        string
+	UserAgent string
+}
+
 type VerifyCodeEmail struct {
 	Code      string
 	ExpiredAt string
@@ -162,4 +170,5 @@ var Validators = map[config.Email]DataValidator{
 	config.EmailBanned:                func(data interface{}) bool { _, ok := data.(*BannedEmail); return ok },
 	config.EmailRoleChange:            func(data interface{}) bool { _, ok := data.(*RoleChangeEmail); return ok },
 	config.EmailPermissionChange:      func(data interface{}) bool { _, ok := data.(*PermissionChangeEmail); return ok },
+	config.EmailEmailChange:           func(data interface{}) bool { _, ok := data.(*ChangeEmail); return ok },
 }
