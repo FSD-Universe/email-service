@@ -28,7 +28,7 @@ func StartHttpServer(content *content.ApplicationContent) {
 	http.SetEchoConfig(lg, e, c.ServerConfig.HttpServerConfig, nil)
 
 	if c.TelemetryConfig.HttpServerTrace {
-		http.SetTelemetry(e, c.TelemetryConfig)
+		http.SetTelemetry(e, c.TelemetryConfig, http.SkipperHealthCheck)
 	}
 
 	emailController := controller.NewEmailController(
