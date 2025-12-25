@@ -11,10 +11,8 @@ var (
 )
 
 const (
-	AppVersion    = "0.1.0"
-	ConfigVersion = "0.1.0"
-
-	ServiceName = "email-service"
+	AppVersion    = "0.2.0"
+	ConfigVersion = "0.2.0"
 
 	EnvDownloadPrefix = "DOWNLOAD_PREFIX"
 )
