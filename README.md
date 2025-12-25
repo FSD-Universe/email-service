@@ -94,7 +94,7 @@ cd email-service
 # 确认安装了go编译器并且版本>=1.25
 go version
 # 运行go build命令
-go build -ldflags="-w -s" -tags "http grpc telemetry" .
+go build -ldflags="-w -s" -tags "http telemetry" .
 # 对于windows系统, 可执行文件为email-service.exe
 # 对于linux系统, 可执行文件为email-service
 # [可选]使用upx压缩可执行文件
