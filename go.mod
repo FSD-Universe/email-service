@@ -10,7 +10,7 @@ require (
 	google.golang.org/grpc v1.78.0
 	google.golang.org/protobuf v1.36.11
 	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
-	half-nothing.cn/service-core v0.7.1
+	half-nothing.cn/service-core v0.7.2
 )
 
 require (
