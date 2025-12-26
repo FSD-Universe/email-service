@@ -69,6 +69,7 @@ type TemplateConfig struct {
 	ActivityAtcLeaveEmail      *Template `yaml:"activity_atc_leave_email"`
 	InstructorChangeEmail      *Template `yaml:"instructor_change_email"`
 	BannedEmail                *Template `yaml:"banned_email"`
+	UnbannedEmail              *Template `yaml:"unbanned_email"`
 	RoleChangeEmail            *Template `yaml:"role_change_email"`
 	PermissionChangeEmail      *Template `yaml:"permission_change_email"`
 	EmailChangeEmail           *Template `yaml:"email_change_email"`
@@ -96,6 +97,7 @@ func (t *TemplateConfig) InitDefaults() {
 	t.ActivityAtcLeaveEmail = &Template{Enable: true, FileName: "activity_atc_leave.template", Subject: "退出活动成功", Type: EmailActivityAtcLeave}
 	t.InstructorChangeEmail = &Template{Enable: true, FileName: "instructor_change.template", Subject: "教员变更通知", Type: EmailInstructorChange}
 	t.BannedEmail = &Template{Enable: true, FileName: "banned.template", Subject: "您已被封禁", Type: EmailBanned}
+	t.UnbannedEmail = &Template{Enable: true, FileName: "unbanned.template", Subject: "您已被解封", Type: EmailUnbanned}
 	t.RoleChangeEmail = &Template{Enable: true, FileName: "role_change.template", Subject: "飞控角色变更通知", Type: EmailRoleChange}
 	t.PermissionChangeEmail = &Template{Enable: true, FileName: "permission_change.template", Subject: "飞控权限变更通知", Type: EmailPermissionChange}
 	t.EmailChangeEmail = &Template{Enable: true, FileName: "email_change.template", Subject: "邮箱变更通知", Type: EmailEmailChange}
@@ -105,8 +107,8 @@ func (t *TemplateConfig) Verify() (bool, error) {
 	fields := []*Template{t.VerifyCodeEmail, t.WelcomeEmail, t.RatingChangeEmail, t.KickedFromServerEmail,
 		t.PasswordChangeEmail, t.PasswordResetEmail, t.ApplicationPassedEmail, t.ApplicationRejectedEmail,
 		t.ApplicationProcessingEmail, t.TicketReplyEmail, t.ActivityPilotJoinEmail, t.ActivityPilotLeaveEmail,
-		t.ActivityAtcJoinEmail, t.ActivityAtcLeaveEmail, t.InstructorChangeEmail, t.BannedEmail, t.RoleChangeEmail,
-		t.PermissionChangeEmail}
+		t.ActivityAtcJoinEmail, t.ActivityAtcLeaveEmail, t.InstructorChangeEmail, t.BannedEmail, t.UnbannedEmail,
+		t.RoleChangeEmail, t.PermissionChangeEmail}
 	utils.ForEach(fields, func(_ int, field *Template) {
 		field.LocalPath = t.LocalPath
 	})
@@ -238,6 +240,7 @@ var (
 	EmailActivityAtcLeave      = utils.NewEnum("activity_atc_leave", &EmailData{Enable: true, RemotePath: "/docker/data/templates/activity_atc_leave.template"})
 	EmailInstructorChange      = utils.NewEnum("instructor_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/instructor_change.template"})
 	EmailBanned                = utils.NewEnum("banned", &EmailData{Enable: true, RemotePath: "/docker/data/templates/banned.template"})
+	EmailUnbanned              = utils.NewEnum("unbanned", &EmailData{Enable: true, RemotePath: "/docker/data/templates/unbanned.template"})
 	EmailRoleChange            = utils.NewEnum("role_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/role_change.template"})
 	EmailPermissionChange      = utils.NewEnum("permission_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/permission_change.template"})
 	EmailEmailChange           = utils.NewEnum("email_change", &EmailData{Enable: true, RemotePath: "/docker/data/templates/email_change.template"})

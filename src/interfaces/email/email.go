@@ -83,6 +83,12 @@ type BannedEmail struct {
 	Contact  string
 }
 
+type UnbannedEmail struct {
+	Cid      string
+	Operator string
+	Contact  string
+}
+
 type InstructorChangeEmail struct {
 	Cid        string
 	Reason     string
@@ -168,6 +174,7 @@ var Validators = map[config.Email]DataValidator{
 	config.EmailActivityAtcLeave:      func(data interface{}) bool { _, ok := data.(*ActivityAtcLeaveEmail); return ok },
 	config.EmailInstructorChange:      func(data interface{}) bool { _, ok := data.(*InstructorChangeEmail); return ok },
 	config.EmailBanned:                func(data interface{}) bool { _, ok := data.(*BannedEmail); return ok },
+	config.EmailUnbanned:              func(data interface{}) bool { _, ok := data.(*UnbannedEmail); return ok },
 	config.EmailRoleChange:            func(data interface{}) bool { _, ok := data.(*RoleChangeEmail); return ok },
 	config.EmailPermissionChange:      func(data interface{}) bool { _, ok := data.(*PermissionChangeEmail); return ok },
 	config.EmailEmailChange:           func(data interface{}) bool { _, ok := data.(*ChangeEmail); return ok },

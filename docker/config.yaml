@@ -114,6 +114,10 @@ email:
         enable: true
         file_name: banned.template
         subject: 您已被封禁
+      unbanned_email:
+        enable: true
+        file_name: unbanned.template
+        subject: 您已被解封
       role_change_email:
         enable: true
         file_name: role_change.template

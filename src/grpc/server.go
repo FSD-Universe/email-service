@@ -194,6 +194,18 @@ func (e *EmailServer) SendBanned(_ context.Context, d *pb.Banned) (*pb.SendRespo
 	return e.sendEmailTemplate(config.EmailBanned, d.TargetEmail, data)
 }
 
+func (e *EmailServer) SendUnbanned(_ context.Context, d *pb.Unbanned) (*pb.SendResponse, error) {
+	if !e.extractAndValidateFields(d) {
+		return nil, status.Error(codes.InvalidArgument, "missing required argument")
+	}
+	data := &email.UnbannedEmail{
+		Cid:      d.Cid,
+		Contact:  d.Contact,
+		Operator: d.Operator,
+	}
+	return e.sendEmailTemplate(config.EmailUnbanned, d.TargetEmail, data)
+}
+
 func (e *EmailServer) SendInstructorChange(_ context.Context, d *pb.InstructorChange) (*pb.SendResponse, error) {
 	if !e.extractAndValidateFields(d) {
 		return nil, status.Error(codes.InvalidArgument, "missing required argument")
